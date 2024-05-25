@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7o0oj2j8ckca"]
+
+[ext_resource type="Script" path="res://assets/scripts/InputManager.gd" id="1_digy7"]
+
+[node name="InputManager" type="Node2D"]
+script = ExtResource("1_digy7")
+
+[node name="Node2D" type="Node2D" parent="."]

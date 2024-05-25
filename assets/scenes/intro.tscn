@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://opov705xvw8p"]
+
+[ext_resource type="VideoStream" path="res://assets/videos/intro_2.ogv" id="1_yerh5"]
+[ext_resource type="Script" path="res://assets/scripts/intro.gd" id="1_ywapk"]
+[ext_resource type="VideoStream" path="res://assets/videos/LoopMenu.ogv" id="2_3sc7x"]
+[ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="3_rvu88"]
+[ext_resource type="PackedScene" uid="uid://3gev67mgo2dl" path="res://assets/scenes/Animations/TransitionScreen.tscn" id="4_eddr7"]
+
+[node name="intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ywapk")
+initialVideo = ExtResource("1_yerh5")
+startInputSound = ExtResource("3_rvu88")
+videoToChange = ExtResource("2_3sc7x")
+
+[node name="PlayColorAnimationNode" parent="." instance=ExtResource("4_eddr7")]
+layout_mode = 1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_yerh5")
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
