@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://cn3lnuk0j41m3"]
+
+[ext_resource type="Texture2D" uid="uid://bhwd1yafkf8p6" path="res://assets/sprites/menu/NewGameMenu.png" id="1_1uo7l"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="3_qtlnw"]
+[ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="4_dtuqa"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="5_bswsg"]
+[ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="6_waw18"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ae6w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kj6y"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 253.0
+offset_top = 2.0
+offset_right = -223.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("1_1uo7l")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="FileSelector" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("defaultButton")]
+script = ExtResource("3_qtlnw")
+defaultButton = NodePath("File1")
+
+[node name="File1" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 417.0
+offset_top = 296.0
+offset_right = 483.0
+offset_bottom = 404.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_bottom = NodePath("../File2")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ae6w")
+button_mask = 0
+icon = ExtResource("4_dtuqa")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bswsg")
+cursorAudio = ExtResource("6_waw18")
+button = NodePath("..")
+ignoreFirstFocus = true
+
+[node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 417.0
+offset_top = 424.0
+offset_right = 483.0
+offset_bottom = 532.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_top = NodePath("../File1")
+focus_neighbor_bottom = NodePath("../File3")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
+icon = ExtResource("4_dtuqa")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bswsg")
+cursorAudio = ExtResource("6_waw18")
+button = NodePath("..")
+
+[node name="File3" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 417.0
+offset_top = 548.0
+offset_right = 483.0
+offset_bottom = 656.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_top = NodePath("../File2")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
+icon = ExtResource("4_dtuqa")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bswsg")
+cursorAudio = ExtResource("6_waw18")
+button = NodePath("..")
+
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File1" to="CanvasLayer/TextureRect/FileSelector/File1" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File2" to="CanvasLayer/TextureRect/FileSelector/File2" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File3" to="CanvasLayer/TextureRect/FileSelector/File3" method="_on_focus_entered"]

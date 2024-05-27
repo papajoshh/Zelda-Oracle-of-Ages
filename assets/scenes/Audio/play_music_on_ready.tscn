@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7wcre4jcypuy"]
+
+[ext_resource type="Script" path="res://assets/scripts/Audio/PlayMusicOnReady.gd" id="1_68dxj"]
+
+[node name="PlayMusicOnReady" type="Node"]
+script = ExtResource("1_68dxj")
