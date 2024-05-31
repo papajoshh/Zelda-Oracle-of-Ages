@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://31vlyu7tlekv"]
+
+[ext_resource type="Script" path="res://addons/save_system/save_system_test/save_system_test.gd" id="1_qi45e"]
+
+[node name="TestData" type="Node"]
+script = ExtResource("1_qi45e")

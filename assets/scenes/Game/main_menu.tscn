@@ -1,16 +1,49 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3hg8eb2c7jvj"]
+[gd_scene load_steps=22 format=3 uid="uid://d3hg8eb2c7jvj"]
 
 [ext_resource type="Texture2D" uid="uid://bsjtinxmrkfn4" path="res://assets/sprites/menu/FileMenu.PNG" id="1_g8cdn"]
 [ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="2_4r7re"]
-[ext_resource type="Texture2D" uid="uid://drarson88dstl" path="res://assets/sprites/menu/Link.PNG" id="2_8yxji"]
 [ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="3_ja1tf"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="3_mgl0p"]
+[ext_resource type="Script" path="res://assets/scenes/Interface/menus/FileInfoOnChangeSlot.gd" id="3_x0opo"]
 [ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="4_br6yu"]
+[ext_resource type="Script" path="res://assets/scenes/Game/FileManager.gd" id="4_elctk"]
+[ext_resource type="Texture2D" uid="uid://djhgig1on2h3v" path="res://assets/sprites/Characters/Link/Link.png" id="4_y63s8"]
+[ext_resource type="Texture2D" uid="uid://bcynr46j67t42" path="res://assets/sprites/Miscellaneous.png" id="5_fmfct"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="6_qp34l"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/select_file_node.gd" id="7_7xw1x"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnSelectButtonNode.gd" id="8_x83yr"]
 [ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="9_mussh"]
 [ext_resource type="PackedScene" uid="uid://7wcre4jcypuy" path="res://assets/scenes/Audio/play_music_on_ready.tscn" id="10_84o5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcho5"]
+atlas = ExtResource("4_y63s8")
+region = Rect2(366, 30, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q034t"]
+atlas = ExtResource("4_y63s8")
+region = Rect2(381, 30, 13, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82ydg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcho5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q034t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xmd7"]
+atlas = ExtResource("5_fmfct")
+region = Rect2(459, 360, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f1sl"]
+atlas = ExtResource("4_y63s8")
+region = Rect2(366, 30, 13, 16)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ae6w"]
 
@@ -42,15 +75,155 @@ texture = ExtResource("1_g8cdn")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect"]
+[node name="FileManager" type="Node" parent="CanvasLayer/TextureRect"]
+script = ExtResource("4_elctk")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer"]
-offset_left = 659.0
-offset_top = 319.0
-offset_right = 765.0
-offset_bottom = 441.0
-scale = Vector2(0.632, 0.632)
-texture = ExtResource("2_8yxji")
+[node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("gameNotCreatedContainer", "gameCreatedContainer", "hearts")]
+script = ExtResource("3_x0opo")
+gameNotCreatedContainer = NodePath("GameNotCreatedContainer")
+gameCreatedContainer = NodePath("GameCreatedContainer")
+hearts = [NodePath("GameCreatedContainer/Hearts/GridContainer/Heart"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart2"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart3"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart4"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart5"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart6"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart7"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart8"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart9"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart10"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart11"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart12"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart13"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart14")]
+
+[node name="GameCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer"]
+position = Vector2(695.5, 360)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_82ydg")
+autoplay = "default"
+frame_progress = 0.842087
+
+[node name="Hearts" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer"]
+anchors_preset = 0
+offset_left = 655.0
+offset_top = 416.0
+offset_right = 695.0
+offset_bottom = 456.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -5.0
+offset_right = 337.0
+offset_bottom = 85.0
+columns = 7
+
+[node name="Heart" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart4" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart5" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart6" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart7" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart8" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart9" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart10" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart11" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart12" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart13" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="Heart14" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Hearts/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_6xmd7")
+
+[node name="GameNotCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameNotCreatedContainer"]
+offset_left = 663.5
+offset_top = 320.0
+offset_right = 703.5
+offset_bottom = 360.0
+scale = Vector2(1.998, 2.044)
+texture = SubResource("AtlasTexture_4f1sl")
+stretch_mode = 4
 
 [node name="FileSelector" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("defaultButton")]
 script = ExtResource("3_mgl0p")
@@ -96,6 +269,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_7xw1x")
 button = NodePath("..")
+slotId = 1
 
 [node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
@@ -127,6 +301,17 @@ offset_bottom = 40.0
 script = ExtResource("8_x83yr")
 audio = ExtResource("9_mussh")
 button = NodePath("..")
+
+[node name="SelectFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.55038
+offset_top = -187.597
+offset_right = 41.5504
+offset_bottom = -147.597
+script = ExtResource("7_7xw1x")
+button = NodePath("..")
+slotId = 2
 
 [node name="File3" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
@@ -160,6 +345,17 @@ offset_bottom = -150.698
 script = ExtResource("8_x83yr")
 audio = ExtResource("9_mussh")
 button = NodePath("..")
+
+[node name="SelectFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.55038
+offset_top = -378.295
+offset_right = 41.5504
+offset_bottom = -338.295
+script = ExtResource("7_7xw1x")
+button = NodePath("..")
+slotId = 3
 
 [node name="Copy" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 421.0

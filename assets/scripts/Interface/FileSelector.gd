@@ -4,3 +4,5 @@ extends Node
 
 func _ready():
 	defaultButton.grab_focus()
+
+

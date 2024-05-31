@@ -22,6 +22,9 @@ GameEventsManager="*res://assets/scripts/CheckableEvents/GameEventsManager.gd"
 SceneManager="*res://assets/scripts/SceneManagement/SceneManager.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 TransitionScreen="*res://assets/scenes/Animations/TransitionScreen.tscn"
+SaveData="*res://assets/scenes/Game/SaveData/save_data.tscn"
+SaveSystem="*res://addons/save_system/save_system.gd"
+FileManager="*res://assets/scenes/Game/FileManager.gd"
 
 [display]
 

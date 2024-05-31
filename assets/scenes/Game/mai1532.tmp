@@ -1,0 +1,216 @@
+[gd_scene load_steps=14 format=3 uid="uid://d3hg8eb2c7jvj"]
+
+[ext_resource type="Texture2D" uid="uid://bsjtinxmrkfn4" path="res://assets/sprites/menu/FileMenu.PNG" id="1_g8cdn"]
+[ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="2_4r7re"]
+[ext_resource type="Texture2D" uid="uid://drarson88dstl" path="res://assets/sprites/menu/Link.PNG" id="2_8yxji"]
+[ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="3_ja1tf"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="3_mgl0p"]
+[ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="4_br6yu"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="6_qp34l"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/select_file_node.gd" id="7_7xw1x"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnSelectButtonNode.gd" id="8_x83yr"]
+[ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="9_mussh"]
+[ext_resource type="PackedScene" uid="uid://7wcre4jcypuy" path="res://assets/scenes/Audio/play_music_on_ready.tscn" id="10_84o5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ae6w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kj6y"]
+
+[node name="MainMenu" type="Control"]
+z_index = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 253.0
+offset_top = 2.0
+offset_right = -223.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("1_g8cdn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer"]
+offset_left = 659.0
+offset_top = 319.0
+offset_right = 765.0
+offset_bottom = 441.0
+scale = Vector2(0.632, 0.632)
+texture = ExtResource("2_8yxji")
+
+[node name="FileSelector" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("defaultButton")]
+script = ExtResource("3_mgl0p")
+defaultButton = NodePath("File1")
+
+[node name="File1" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 298.0
+offset_top = 270.0
+offset_right = 364.0
+offset_bottom = 378.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_bottom = NodePath("../File2")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ae6w")
+button_mask = 0
+icon = ExtResource("3_ja1tf")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_qp34l")
+cursorAudio = ExtResource("4_br6yu")
+button = NodePath("..")
+ignoreFirstFocus = true
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.55038
+offset_top = 187.597
+offset_right = 38.4496
+offset_bottom = 227.597
+script = ExtResource("8_x83yr")
+audio = ExtResource("9_mussh")
+button = NodePath("..")
+
+[node name="SelectFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_7xw1x")
+button = NodePath("..")
+
+[node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 297.0
+offset_top = 391.0
+offset_right = 363.0
+offset_bottom = 499.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_top = NodePath("../File1")
+focus_neighbor_bottom = NodePath("../File3")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
+icon = ExtResource("3_ja1tf")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_qp34l")
+cursorAudio = ExtResource("4_br6yu")
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_x83yr")
+audio = ExtResource("9_mussh")
+button = NodePath("..")
+
+[node name="File3" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 297.0
+offset_top = 514.0
+offset_right = 363.0
+offset_bottom = 622.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_top = NodePath("../File2")
+focus_neighbor_bottom = NodePath("../Copy")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
+icon = ExtResource("3_ja1tf")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_qp34l")
+cursorAudio = ExtResource("4_br6yu")
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -190.698
+offset_right = 40.0
+offset_bottom = -150.698
+script = ExtResource("8_x83yr")
+audio = ExtResource("9_mussh")
+button = NodePath("..")
+
+[node name="Copy" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 421.0
+offset_top = 624.0
+offset_right = 483.0
+offset_bottom = 732.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_top = NodePath("../File3")
+focus_neighbor_right = NodePath("../Erase")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
+icon = ExtResource("3_ja1tf")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Copy" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_qp34l")
+cursorAudio = ExtResource("4_br6yu")
+button = NodePath("..")
+
+[node name="Erase" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+offset_left = 710.0
+offset_top = 626.0
+offset_right = 772.0
+offset_bottom = 734.0
+scale = Vector2(0.645, 0.645)
+focus_neighbor_left = NodePath("../Copy")
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
+icon = ExtResource("3_ja1tf")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Erase" node_paths=PackedStringArray("button")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_qp34l")
+cursorAudio = ExtResource("4_br6yu")
+button = NodePath("..")
+
+[node name="PlayMusicOnReady" parent="." instance=ExtResource("10_84o5t")]
+clip = ExtResource("2_4r7re")
+
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File1" to="CanvasLayer/TextureRect/FileSelector/File1" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File2" to="CanvasLayer/TextureRect/FileSelector/File2" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File3" to="CanvasLayer/TextureRect/FileSelector/File3" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/Copy" to="CanvasLayer/TextureRect/FileSelector/Copy" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/Erase" to="CanvasLayer/TextureRect/FileSelector/Erase" method="_on_focus_entered"]

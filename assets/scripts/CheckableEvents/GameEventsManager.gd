@@ -6,7 +6,7 @@ var GameEvents = {}
 func GetGameEvent(eventName):
 	if(!GameEvents.has(eventName)):
 		GameEvents.eventName = GameEvent.new()
-	return GameEvent[eventName]
+	return GameEvents[eventName]
 
 class GameEvent:
 	signal OnFail

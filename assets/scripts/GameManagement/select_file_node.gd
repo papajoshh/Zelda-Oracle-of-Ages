@@ -1,12 +1,20 @@
 extends Control
 
 @export var button: Button
+@export var slotId: int
+
+var slotData
 
 func _ready():
 	button.pressed.connect(on_select_file)
+	button.focus_entered.connect(on_focus_file)
+	slotData = SaveData.GetSlot(slotId)
+
+func on_focus_file():
+	FileManager.ChangeSlot(slotId)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func on_select_file():
-	TransitionScreen.DoAnimation()
-	await TransitionScreen.on_transition_finished
-	SceneManager.change_scene("res://assets/scenes/Game/start_new_game_menu.tscn")
+	if(slotData.gameCreated):
+		pass
+	else:
+		await TransitionScreen.FadeInOut(0.1, Color.WHITE, SceneManager.change_scene.bind("res://assets/scenes/Game/start_new_game_menu.tscn"))
