@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://18sr0srok5i0"]
+
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnInputNode.gd" id="1_qdjul"]
+[ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="2_nl02r"]
+
+[node name="PlaySoundOnInput" type="Node"]
+script = ExtResource("1_qdjul")
+audio = ExtResource("2_nl02r")
+signalToConnect = "b_button_realeased"

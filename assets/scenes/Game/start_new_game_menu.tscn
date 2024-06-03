@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn3lnuk0j41m3"]
+[gd_scene load_steps=14 format=3 uid="uid://cn3lnuk0j41m3"]
 
 [ext_resource type="Texture2D" uid="uid://bhwd1yafkf8p6" path="res://assets/sprites/menu/NewGameMenu.png" id="1_1uo7l"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="3_qtlnw"]
 [ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="4_dtuqa"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="5_bswsg"]
+[ext_resource type="PackedScene" uid="uid://b85u5i4krrdom" path="res://assets/scenes/Interface/change_scene_on_input.tscn" id="6_7r1rm"]
+[ext_resource type="PackedScene" uid="uid://cnd5fuftjdsvq" path="res://assets/scenes/Interface/menus/change_scene_on_select_button_node.tscn" id="6_gs1o8"]
 [ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="6_waw18"]
+[ext_resource type="PackedScene" uid="uid://18sr0srok5i0" path="res://assets/scenes/Interface/menus/play_sound_on_input.tscn" id="7_spcx8"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnSelectButtonNode.gd" id="7_uti0d"]
+[ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="8_5qh5q"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_6pbae"]
 grow_begin = 0.0
@@ -68,6 +73,18 @@ cursorAudio = ExtResource("6_waw18")
 button = NodePath("..")
 ignoreFirstFocus = true
 
+[node name="ChangeSceneOnSelectButtonNode" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button") instance=ExtResource("6_gs1o8")]
+scenePath = "res://assets/scenes/Game/create_new_game_file.tscn"
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_uti0d")
+audio = ExtResource("8_5qh5q")
+button = NodePath("..")
+
 [node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 417.0
 offset_top = 424.0
@@ -112,6 +129,11 @@ offset_bottom = 40.0
 script = ExtResource("5_bswsg")
 cursorAudio = ExtResource("6_waw18")
 button = NodePath("..")
+
+[node name="PlaySoundOnInput" parent="." instance=ExtResource("7_spcx8")]
+
+[node name="BackToMainMenuOnInput" parent="." instance=ExtResource("6_7r1rm")]
+signalToConnect = "b_button_realeased"
 
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File1" to="CanvasLayer/TextureRect/FileSelector/File1" method="_on_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File2" to="CanvasLayer/TextureRect/FileSelector/File2" method="_on_focus_entered"]

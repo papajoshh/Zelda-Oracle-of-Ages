@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="2_4r7re"]
 [ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="3_ja1tf"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="3_mgl0p"]
-[ext_resource type="Script" path="res://assets/scenes/Interface/menus/FileInfoOnChangeSlot.gd" id="3_x0opo"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/FileInfoOnChangeSlot.gd" id="3_x0opo"]
 [ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="4_br6yu"]
 [ext_resource type="Script" path="res://assets/scenes/Game/FileManager.gd" id="4_elctk"]
 [ext_resource type="Texture2D" uid="uid://djhgig1on2h3v" path="res://assets/sprites/Characters/Link/Link.png" id="4_y63s8"]
@@ -217,6 +217,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect/FileInfoContainer/GameNotCreatedContainer"]
+layout_mode = 0
 offset_left = 663.5
 offset_top = 320.0
 offset_right = 703.5

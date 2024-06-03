@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85u5i4krrdom"]
+
+[ext_resource type="Script" path="res://assets/scripts/Interface/ChangeSceneOnInput.gd" id="1_tbmsm"]
+
+[node name="ChangeSceneOnInput" type="Node"]
+script = ExtResource("1_tbmsm")
+scenePath = "res://assets/scenes/Game/main_menu.tscn"

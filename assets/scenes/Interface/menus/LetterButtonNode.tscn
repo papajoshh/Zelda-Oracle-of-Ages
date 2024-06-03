@@ -1,0 +1,114 @@
+[gd_scene load_steps=12 format=3 uid="uid://ciijfy1nej0ah"]
+
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="1_iat43"]
+[ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="2_blp8h"]
+[ext_resource type="Texture2D" uid="uid://d28v7qw25y6wj" path="res://assets/sprites/menu/Game Boy GBC - The Legend of Zelda Oracle of Ages - Font.png" id="3_67eag"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/SetVisibleOnFocusNode.gd" id="3_g6pch"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnSelectButtonNode.gd" id="3_o3onr"]
+[ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="4_5ehvy"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/AssignLetterOnSelectButton.gd" id="5_ahxle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yox2o"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6pbae"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ae6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uddw"]
+atlas = ExtResource("3_67eag")
+region = Rect2(184, 63, 8, 2)
+
+[node name="LetterButton" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -125.0
+offset_right = -161.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.695, 0.695)
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yox2o")
+theme_override_styles/pressed = SubResource("StyleBoxLine_6pbae")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ae6w")
+button_mask = 0
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="." node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_iat43")
+cursorAudio = ExtResource("2_blp8h")
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="." node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_o3onr")
+audio = ExtResource("4_5ehvy")
+button = NodePath("..")
+
+[node name="SetVisibleOnFocusNode" type="Control" parent="." node_paths=PackedStringArray("node", "button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_g6pch")
+node = NodePath("../ButtonIconGroup")
+statusToSet = true
+button = NodePath("..")
+
+[node name="AssignLetterOnSelectButton" type="Control" parent="." node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_ahxle")
+button = NodePath("..")
+
+[node name="ButtonIconGroup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line" type="TextureRect" parent="ButtonIconGroup"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.5
+offset_top = -3.0
+offset_right = 27.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("AtlasTexture_3uddw")
+
+[node name="Letter" type="TextureRect" parent="ButtonIconGroup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.863
+offset_bottom = 3.56201
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 4
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

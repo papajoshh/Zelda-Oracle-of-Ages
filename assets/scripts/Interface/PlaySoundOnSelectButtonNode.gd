@@ -5,8 +5,6 @@ extends Control
 @export var audio:AudioStream
 @export var button: Button
 
-var focusedFirstTime = false
-
 func _ready():
 	button.pressed.connect(play_sound)
 	
