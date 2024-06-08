@@ -22,11 +22,17 @@ func StoreLetterName(letterToAdd:String):
 	if(currentIndex < storedName.size() - 1):
 		currentIndex = currentIndex + 1
 	FormatText()
-
-func FormatText():
+	
+func GetName():
 	var textToShow:String= ""
 	for letter in storedName:
 		textToShow = textToShow + letter
+	return textToShow
+
+func GetEmptyName():
+	return "          "
+func FormatText():
+	var textToShow:String= GetName()
 	nameTextUI.text = textToShow
 	writeIndicator.set_position(initialLetterPosition.position + Vector2(spaceBetweenLetters * currentIndex, 0))
 

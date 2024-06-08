@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4cwvhm4aws0a"]
+[gd_scene load_steps=35 format=3 uid="uid://b4cwvhm4aws0a"]
 
 [ext_resource type="Texture2D" uid="uid://d28v7qw25y6wj" path="res://assets/sprites/menu/Game Boy GBC - The Legend of Zelda Oracle of Ages - Font.png" id="1_vk004"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameCreatorManager.gd" id="2_1afa0"]
-[ext_resource type="Texture2D" uid="uid://dvcn5lvci2chu" path="res://assets/sprites/menu/CreateFileBackground.png" id="2_sc50f"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/ChangeFileNumberNode.gd" id="2_yifyc"]
 [ext_resource type="FontFile" uid="uid://cu2x6wwjxfy1v" path="res://assets/fonts/ZeldaOracles.ttf" id="3_8xy21"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/FocusButtonOnReady.gd" id="3_edfe1"]
 [ext_resource type="PackedScene" uid="uid://ciijfy1nej0ah" path="res://assets/scenes/Interface/menus/LetterButtonNode.tscn" id="3_gv465"]
@@ -15,10 +15,28 @@
 [ext_resource type="Script" path="res://assets/scripts/Interface/SetVisibleOnFocusNode.gd" id="12_s4f20"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/LeftLetterOnSelectButtonNode.gd" id="13_q2k46"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/RightLetterOnSelectButtonNode.gd" id="14_qmphh"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/CreateGameButtonNode.gd" id="15_5m7np"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/FocusButtonOnInputNode.gd" id="16_wn258"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qvpv"]
 atlas = ExtResource("1_vk004")
 region = Rect2(4, 5, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmygy"]
+atlas = ExtResource("1_vk004")
+region = Rect2(176, 20, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn2r8"]
+atlas = ExtResource("1_vk004")
+region = Rect2(176, 20, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nltxf"]
+atlas = ExtResource("1_vk004")
+region = Rect2(251, 20, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ys5x"]
+atlas = ExtResource("1_vk004")
+region = Rect2(176, 55, 6, 8)
 
 [sub_resource type="FontVariation" id="FontVariation_d1kxp"]
 base_font = ExtResource("3_8xy21")
@@ -52,6 +70,20 @@ thickness = 0
 atlas = ExtResource("1_vk004")
 region = Rect2(160, 179, 5, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moop5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_78lmr"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bows"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uddw"]
+atlas = ExtResource("1_vk004")
+region = Rect2(160, 176, 1, 4)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -62,45 +94,55 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="ContainerBg" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 253.0
-offset_top = 2.0
+offset_top = 3.0
 offset_right = -223.0
-offset_bottom = 2.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.02, 1.02)
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect"]
+[node name="BackgroundIcon" type="TextureRect" parent="CanvasLayer/ContainerBg"]
 layout_mode = 0
 offset_right = 797.0
 offset_bottom = 713.0
 texture = SubResource("AtlasTexture_0qvpv")
 
-[node name="Background" type="TextureRect" parent="CanvasLayer/TextureRect"]
+[node name="FileIcon" type="TextureRect" parent="CanvasLayer/ContainerBg"]
 layout_mode = 0
-offset_right = 1206.0
-offset_bottom = 1080.0
-scale = Vector2(0.665693, 0.661751)
-texture = ExtResource("2_sc50f")
-stretch_mode = 2
+offset_left = 357.843
+offset_top = 78.4314
+offset_right = 397.843
+offset_bottom = 118.431
+scale = Vector2(1.03922, 1.03922)
+texture = SubResource("AtlasTexture_qmygy")
+stretch_mode = 4
 
-[node name="NameSelector" type="Node" parent="CanvasLayer/TextureRect"]
+[node name="ChangeFileNumberNode" type="Control" parent="CanvasLayer/ContainerBg/FileIcon" node_paths=PackedStringArray("fileIconTexture")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_yifyc")
+fileIconTexture = NodePath("..")
+textures = Array[Texture]([SubResource("AtlasTexture_tn2r8"), SubResource("AtlasTexture_nltxf"), SubResource("AtlasTexture_0ys5x")])
+
+[node name="NameSelector" type="Node" parent="CanvasLayer/ContainerBg"]
 script = ExtResource("3_x1aod")
 
-[node name="NameCreatorManager" type="Node" parent="CanvasLayer/TextureRect/NameSelector" node_paths=PackedStringArray("nameTextUI", "writeIndicator", "initialLetterPosition")]
+[node name="NameCreatorManager" type="Node" parent="CanvasLayer/ContainerBg/NameSelector" node_paths=PackedStringArray("nameTextUI", "writeIndicator", "initialLetterPosition")]
 script = ExtResource("2_1afa0")
 nameTextUI = NodePath("RichTextLabel")
 writeIndicator = NodePath("WriteIndicator")
 initialLetterPosition = NodePath("FirstLetterPosition")
 spaceBetweenLetters = 44.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/NameSelector/NameCreatorManager"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ContainerBg/NameSelector/NameCreatorManager"]
 offset_left = 661.0
 offset_top = 62.0
 offset_right = 919.0
@@ -116,14 +158,14 @@ theme_override_font_sizes/bold_font_size = 41
 scroll_active = false
 autowrap_mode = 2
 
-[node name="WriteIndicator" type="TextureRect" parent="CanvasLayer/TextureRect/NameSelector/NameCreatorManager"]
+[node name="WriteIndicator" type="TextureRect" parent="CanvasLayer/ContainerBg/NameSelector/NameCreatorManager"]
 offset_left = 661.0
 offset_top = 127.0
 offset_right = 698.0
 offset_bottom = 135.0
 texture = SubResource("AtlasTexture_3bjga")
 
-[node name="FirstLetterPosition" type="Control" parent="CanvasLayer/TextureRect/NameSelector/NameCreatorManager"]
+[node name="FirstLetterPosition" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/NameCreatorManager"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 661.0
@@ -131,7 +173,7 @@ offset_top = 127.0
 offset_right = 701.0
 offset_bottom = 167.0
 
-[node name="SecondLetterPosition" type="Control" parent="CanvasLayer/TextureRect/NameSelector/NameCreatorManager"]
+[node name="SecondLetterPosition" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/NameCreatorManager"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 705.0
@@ -139,7 +181,7 @@ offset_top = 127.0
 offset_right = 745.0
 offset_bottom = 167.0
 
-[node name="AButton" parent="CanvasLayer/TextureRect/NameSelector" instance=ExtResource("3_gv465")]
+[node name="AButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
 offset_left = -266.0
 offset_top = -126.0
 offset_right = -203.0
@@ -147,40 +189,40 @@ offset_bottom = -51.0
 focus_neighbor_right = NodePath("../Bbutton")
 focus_neighbor_bottom = NodePath("../LeftButton")
 
-[node name="PlaySoundOnFocusNode" parent="CanvasLayer/TextureRect/NameSelector/AButton" index="0"]
+[node name="PlaySoundOnFocusNode" parent="CanvasLayer/ContainerBg/NameSelector/AButton" index="0"]
 ignoreFirstFocus = true
 
-[node name="AssignLetterOnSelectButton" parent="CanvasLayer/TextureRect/NameSelector/AButton" index="3" node_paths=PackedStringArray("nameManager")]
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/AButton" index="3" node_paths=PackedStringArray("nameManager")]
 letter = "A"
 nameManager = NodePath("../../NameCreatorManager")
 
-[node name="ButtonIconGroup" parent="CanvasLayer/TextureRect/NameSelector/AButton" index="4"]
+[node name="ButtonIconGroup" parent="CanvasLayer/ContainerBg/NameSelector/AButton" index="4"]
 visible = true
 
-[node name="Letter" parent="CanvasLayer/TextureRect/NameSelector/AButton/ButtonIconGroup" index="1"]
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/AButton/ButtonIconGroup" index="1"]
 texture = SubResource("AtlasTexture_bmt55")
 
-[node name="FocusButtonOnReady" type="Control" parent="CanvasLayer/TextureRect/NameSelector/AButton" node_paths=PackedStringArray("defaultButton")]
+[node name="FocusButtonOnReady" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/AButton" node_paths=PackedStringArray("defaultButton")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_edfe1")
 defaultButton = NodePath("..")
 
-[node name="Bbutton" parent="CanvasLayer/TextureRect/NameSelector" instance=ExtResource("3_gv465")]
+[node name="Bbutton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
 offset_top = -126.0
 offset_bottom = -51.0
 focus_neighbor_left = NodePath("../AButton")
 focus_neighbor_bottom = NodePath("../LeftButton")
 
-[node name="AssignLetterOnSelectButton" parent="CanvasLayer/TextureRect/NameSelector/Bbutton" index="3" node_paths=PackedStringArray("nameManager")]
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/Bbutton" index="3" node_paths=PackedStringArray("nameManager")]
 letter = "B"
 nameManager = NodePath("../../NameCreatorManager")
 
-[node name="Letter" parent="CanvasLayer/TextureRect/NameSelector/Bbutton/ButtonIconGroup" index="1"]
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/Bbutton/ButtonIconGroup" index="1"]
 texture = SubResource("AtlasTexture_raxva")
 
-[node name="LeftButton" type="Button" parent="CanvasLayer/TextureRect/NameSelector"]
+[node name="LeftButton" type="Button" parent="CanvasLayer/ContainerBg/NameSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -205,7 +247,7 @@ theme_override_styles/pressed = SubResource("StyleBoxLine_6pbae")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8ae6w")
 button_mask = 0
 
-[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/LeftButton" node_paths=PackedStringArray("button")]
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/LeftButton" node_paths=PackedStringArray("button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -213,7 +255,7 @@ script = ExtResource("4_jsgbr")
 cursorAudio = ExtResource("5_lgr46")
 button = NodePath("..")
 
-[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/LeftButton" node_paths=PackedStringArray("button")]
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/LeftButton" node_paths=PackedStringArray("button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -221,7 +263,7 @@ script = ExtResource("10_c50qa")
 audio = ExtResource("9_8arn2")
 button = NodePath("..")
 
-[node name="SetVisibleOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/LeftButton" node_paths=PackedStringArray("node", "button")]
+[node name="SetVisibleOnFocusNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/LeftButton" node_paths=PackedStringArray("node", "button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -230,7 +272,7 @@ node = NodePath("../ButtonIconGroup")
 statusToSet = true
 button = NodePath("..")
 
-[node name="LeftLetterOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/LeftButton" node_paths=PackedStringArray("button", "nameManager")]
+[node name="LeftLetterOnSelectButtonNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/LeftButton" node_paths=PackedStringArray("button", "nameManager")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -238,7 +280,7 @@ script = ExtResource("13_q2k46")
 button = NodePath("..")
 nameManager = NodePath("../../NameCreatorManager")
 
-[node name="ButtonIconGroup" type="Control" parent="CanvasLayer/TextureRect/NameSelector/LeftButton"]
+[node name="ButtonIconGroup" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/LeftButton"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -247,7 +289,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Line" type="TextureRect" parent="CanvasLayer/TextureRect/NameSelector/LeftButton/ButtonIconGroup"]
+[node name="Line" type="TextureRect" parent="CanvasLayer/ContainerBg/NameSelector/LeftButton/ButtonIconGroup"]
 layout_mode = 0
 offset_left = -14.0
 offset_top = 72.0
@@ -255,7 +297,7 @@ offset_right = 72.0
 offset_bottom = 82.0
 texture = SubResource("AtlasTexture_tttde")
 
-[node name="RightButton" type="Button" parent="CanvasLayer/TextureRect/NameSelector"]
+[node name="RightButton" type="Button" parent="CanvasLayer/ContainerBg/NameSelector"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -272,6 +314,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../LeftButton")
 focus_neighbor_top = NodePath("../AButton")
+focus_neighbor_right = NodePath("../CreateGameButton")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
@@ -280,7 +323,7 @@ theme_override_styles/pressed = SubResource("StyleBoxLine_6pbae")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8ae6w")
 button_mask = 0
 
-[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/RightButton" node_paths=PackedStringArray("button")]
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/RightButton" node_paths=PackedStringArray("button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -288,7 +331,7 @@ script = ExtResource("4_jsgbr")
 cursorAudio = ExtResource("5_lgr46")
 button = NodePath("..")
 
-[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/RightButton" node_paths=PackedStringArray("button")]
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/RightButton" node_paths=PackedStringArray("button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -296,7 +339,7 @@ script = ExtResource("10_c50qa")
 audio = ExtResource("9_8arn2")
 button = NodePath("..")
 
-[node name="SetVisibleOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/RightButton" node_paths=PackedStringArray("node", "button")]
+[node name="SetVisibleOnFocusNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/RightButton" node_paths=PackedStringArray("node", "button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -305,7 +348,7 @@ node = NodePath("../ButtonIconGroup")
 statusToSet = true
 button = NodePath("..")
 
-[node name="RightLetterOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/NameSelector/RightButton" node_paths=PackedStringArray("button", "nameManager")]
+[node name="RightLetterOnSelectButtonNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/RightButton" node_paths=PackedStringArray("button", "nameManager")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -313,7 +356,7 @@ script = ExtResource("14_qmphh")
 button = NodePath("..")
 nameManager = NodePath("../../NameCreatorManager")
 
-[node name="ButtonIconGroup" type="Control" parent="CanvasLayer/TextureRect/NameSelector/RightButton"]
+[node name="ButtonIconGroup" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/RightButton"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -322,7 +365,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Line" type="TextureRect" parent="CanvasLayer/TextureRect/NameSelector/RightButton/ButtonIconGroup"]
+[node name="Line" type="TextureRect" parent="CanvasLayer/ContainerBg/NameSelector/RightButton/ButtonIconGroup"]
 layout_mode = 0
 offset_left = -14.0
 offset_top = 72.0
@@ -330,18 +373,114 @@ offset_right = 72.0
 offset_bottom = 82.0
 texture = SubResource("AtlasTexture_tttde")
 
-[node name="DeleteCurrentLeterOnInput" type="Node" parent="CanvasLayer/TextureRect/NameSelector" node_paths=PackedStringArray("nameManager")]
+[node name="CreateGameButton" type="Button" parent="CanvasLayer/ContainerBg/NameSelector" node_paths=PackedStringArray("button", "nameManager")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 238.0
+offset_top = 283.0
+offset_right = 301.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.695, 0.695)
+size_flags_horizontal = 6
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../RightButton")
+mouse_filter = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_moop5")
+theme_override_styles/pressed = SubResource("StyleBoxLine_78lmr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5bows")
+button_mask = 0
+script = ExtResource("15_5m7np")
+button = NodePath(".")
+nameManager = NodePath("../NameCreatorManager")
+
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/CreateGameButton" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_jsgbr")
+cursorAudio = ExtResource("5_lgr46")
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/CreateGameButton" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_c50qa")
+audio = ExtResource("9_8arn2")
+button = NodePath("..")
+
+[node name="SetVisibleOnFocusNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/CreateGameButton" node_paths=PackedStringArray("node", "button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_s4f20")
+node = NodePath("../ButtonIconGroup")
+statusToSet = true
+button = NodePath("..")
+
+[node name="CreateGameButtonNode" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/CreateGameButton" node_paths=PackedStringArray("button", "nameManager")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_5m7np")
+button = NodePath("..")
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="FocusOnPressStart" type="Node" parent="CanvasLayer/ContainerBg/NameSelector/CreateGameButton" node_paths=PackedStringArray("button")]
+script = ExtResource("16_wn258")
+button = NodePath("..")
+signalToConnect = "start_realeased"
+
+[node name="ButtonIconGroup" type="Control" parent="CanvasLayer/ContainerBg/NameSelector/CreateGameButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line" type="TextureRect" parent="CanvasLayer/ContainerBg/NameSelector/CreateGameButton/ButtonIconGroup"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.5
+offset_top = -3.0
+offset_right = 49.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("AtlasTexture_3uddw")
+
+[node name="DeleteCurrentLeterOnInput" type="Node" parent="CanvasLayer/ContainerBg/NameSelector" node_paths=PackedStringArray("nameManager")]
 script = ExtResource("7_ci24m")
 signalToConnect = "b_button_realeased"
 nameManager = NodePath("../NameCreatorManager")
 
-[node name="PlaySoundOnInputNode" type="Node" parent="CanvasLayer/TextureRect/NameSelector"]
+[node name="PlaySoundOnInputNode" type="Node" parent="CanvasLayer/ContainerBg/NameSelector"]
 script = ExtResource("3_x1aod")
 audio = ExtResource("9_8arn2")
 signalToConnect = "b_button_realeased"
 
-[connection signal="focus_entered" from="CanvasLayer/TextureRect/NameSelector/LeftButton" to="CanvasLayer/TextureRect/NameSelector/LeftButton" method="_on_focus_entered"]
-[connection signal="focus_entered" from="CanvasLayer/TextureRect/NameSelector/RightButton" to="CanvasLayer/TextureRect/NameSelector/RightButton" method="_on_focus_entered"]
+[node name="PlaySoundOnPressStart" type="Node" parent="CanvasLayer/ContainerBg/NameSelector"]
+script = ExtResource("3_x1aod")
+audio = ExtResource("9_8arn2")
+signalToConnect = "start_realeased"
 
-[editable path="CanvasLayer/TextureRect/NameSelector/AButton"]
-[editable path="CanvasLayer/TextureRect/NameSelector/Bbutton"]
+[connection signal="focus_entered" from="CanvasLayer/ContainerBg/NameSelector/LeftButton" to="CanvasLayer/ContainerBg/NameSelector/LeftButton" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/ContainerBg/NameSelector/RightButton" to="CanvasLayer/ContainerBg/NameSelector/RightButton" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/ContainerBg/NameSelector/CreateGameButton" to="CanvasLayer/ContainerBg/NameSelector/CreateGameButton" method="_on_focus_entered"]
+
+[editable path="CanvasLayer/ContainerBg/NameSelector/AButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/Bbutton"]

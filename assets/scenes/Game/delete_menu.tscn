@@ -1,27 +1,27 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3hg8eb2c7jvj"]
+[gd_scene load_steps=29 format=3 uid="uid://vqfsevjqkedd"]
 
-[ext_resource type="Texture2D" uid="uid://bsjtinxmrkfn4" path="res://assets/sprites/menu/FileMenu.PNG" id="1_g8cdn"]
-[ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="2_4r7re"]
-[ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="3_ja1tf"]
-[ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="3_mgl0p"]
-[ext_resource type="Script" path="res://assets/scripts/GameManagement/FileInfoOnChangeSlot.gd" id="3_x0opo"]
-[ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="4_br6yu"]
-[ext_resource type="Script" path="res://assets/scenes/Game/FileManager.gd" id="4_elctk"]
-[ext_resource type="Texture2D" uid="uid://djhgig1on2h3v" path="res://assets/sprites/Characters/Link/Link.png" id="4_y63s8"]
-[ext_resource type="Texture2D" uid="uid://bcynr46j67t42" path="res://assets/sprites/Miscellaneous.png" id="5_fmfct"]
-[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="6_qp34l"]
-[ext_resource type="Script" path="res://assets/scripts/GameManagement/select_file_node.gd" id="7_7xw1x"]
-[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnSelectButtonNode.gd" id="8_x83yr"]
-[ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="9_mussh"]
-[ext_resource type="PackedScene" uid="uid://7wcre4jcypuy" path="res://assets/scenes/Audio/play_music_on_ready.tscn" id="10_84o5t"]
-[ext_resource type="Script" path="res://assets/scripts/Interface/ChangeSceneOnSelectButtonNode.gd" id="13_6pnu0"]
+[ext_resource type="Texture2D" uid="uid://chscusn3koba8" path="res://assets/sprites/menu/DeleteMenu.PNG" id="1_rl01f"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/FileInfoOnChangeSlot.gd" id="3_njiao"]
+[ext_resource type="Texture2D" uid="uid://djhgig1on2h3v" path="res://assets/sprites/Characters/Link/Link.png" id="4_3d2jk"]
+[ext_resource type="Texture2D" uid="uid://bcynr46j67t42" path="res://assets/sprites/Miscellaneous.png" id="5_qkckb"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="6_hpm4v"]
+[ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="7_n5sle"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="8_5a2vf"]
+[ext_resource type="AudioStream" uid="uid://cw0q70ma7mjd4" path="res://assets/audio/sfx/menu/Oracle_Menu_Cursor.wav" id="9_gngrp"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnSelectButtonNode.gd" id="10_t7xbh"]
+[ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="11_38hi1"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/SelectDeleteFileNode.gd" id="11_hfejy"]
+[ext_resource type="Script" path="res://assets/scripts/Interface/ChangeSceneOnSelectButtonNode.gd" id="12_cjhrm"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/DeleteGameButtonNode.gd" id="13_8gbar"]
+[ext_resource type="PackedScene" uid="uid://7wcre4jcypuy" path="res://assets/scenes/Audio/play_music_on_ready.tscn" id="13_w21gx"]
+[ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="14_jwuqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcho5"]
-atlas = ExtResource("4_y63s8")
+atlas = ExtResource("4_3d2jk")
 region = Rect2(366, 30, 13, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q034t"]
-atlas = ExtResource("4_y63s8")
+atlas = ExtResource("4_3d2jk")
 region = Rect2(381, 30, 13, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82ydg"]
@@ -39,26 +39,28 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xmd7"]
-atlas = ExtResource("5_fmfct")
+atlas = ExtResource("5_qkckb")
 region = Rect2(459, 360, 7, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4f1sl"]
-atlas = ExtResource("4_y63s8")
+atlas = ExtResource("4_3d2jk")
 region = Rect2(366, 30, 13, 16)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48xue"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fplqp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ae6w"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uv3us"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvhq2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kj6y"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wl8ur"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8f4m"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvur1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4g034"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a82y3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7es8g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8pcn"]
 
 [node name="MainMenu" type="Control"]
 z_index = -1
@@ -82,20 +84,18 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.02, 1.02)
-texture = ExtResource("1_g8cdn")
+texture = ExtResource("1_rl01f")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="FileManager" type="Node" parent="CanvasLayer/TextureRect"]
-script = ExtResource("4_elctk")
-
 [node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("gameNotCreatedContainer", "gameCreatedContainer", "hearts")]
-script = ExtResource("3_x0opo")
+script = ExtResource("3_njiao")
 gameNotCreatedContainer = NodePath("GameNotCreatedContainer")
 gameCreatedContainer = NodePath("GameCreatedContainer")
 hearts = [NodePath("GameCreatedContainer/Hearts/GridContainer/Heart"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart2"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart3"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart4"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart5"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart6"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart7"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart8"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart9"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart10"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart11"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart12"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart13"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart14")]
 
 [node name="GameCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -222,6 +222,7 @@ size_flags_vertical = 0
 texture = SubResource("AtlasTexture_6xmd7")
 
 [node name="GameNotCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -238,8 +239,8 @@ texture = SubResource("AtlasTexture_4f1sl")
 stretch_mode = 4
 
 [node name="FileSelector" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("defaultButton")]
-script = ExtResource("3_mgl0p")
-defaultButton = NodePath("File1")
+script = ExtResource("6_hpm4v")
+defaultButton = NodePath("Quit")
 
 [node name="File1" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 298.0
@@ -251,17 +252,17 @@ focus_neighbor_bottom = NodePath("../File2")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_48xue")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fplqp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8ae6w")
 button_mask = 0
-icon = ExtResource("3_ja1tf")
+icon = ExtResource("7_n5sle")
 
 [node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_qp34l")
-cursorAudio = ExtResource("4_br6yu")
+script = ExtResource("8_5a2vf")
+cursorAudio = ExtResource("9_gngrp")
 button = NodePath("..")
 ignoreFirstFocus = true
 
@@ -272,17 +273,27 @@ offset_left = -1.55038
 offset_top = 187.597
 offset_right = 38.4496
 offset_bottom = 227.597
-script = ExtResource("8_x83yr")
-audio = ExtResource("9_mussh")
+script = ExtResource("10_t7xbh")
+audio = ExtResource("11_38hi1")
 button = NodePath("..")
 
-[node name="SelectFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button")]
+[node name="SelectDeleteFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("button", "eraseButton", "quitButton", "deleteIcon")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_7xw1x")
+script = ExtResource("11_hfejy")
 button = NodePath("..")
 slotId = 1
+eraseButton = NodePath("../../Erase")
+quitButton = NodePath("../../Quit")
+deleteIcon = NodePath("../DeleteIcon")
+
+[node name="DeleteIcon" type="TextureRect" parent="CanvasLayer/TextureRect/FileSelector/File1"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_n5sle")
 
 [node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
@@ -295,37 +306,47 @@ focus_neighbor_bottom = NodePath("../File3")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_uv3us")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uvhq2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
-icon = ExtResource("3_ja1tf")
+icon = ExtResource("7_n5sle")
 
 [node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_qp34l")
-cursorAudio = ExtResource("4_br6yu")
+script = ExtResource("8_5a2vf")
+cursorAudio = ExtResource("9_gngrp")
 button = NodePath("..")
 
 [node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button")]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("8_x83yr")
-audio = ExtResource("9_mussh")
+script = ExtResource("10_t7xbh")
+audio = ExtResource("11_38hi1")
 button = NodePath("..")
 
-[node name="SelectFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button")]
+[node name="SelectDeleteFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("button", "eraseButton", "quitButton", "deleteIcon")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.55038
 offset_top = -187.597
 offset_right = 41.5504
 offset_bottom = -147.597
-script = ExtResource("7_7xw1x")
+script = ExtResource("11_hfejy")
 button = NodePath("..")
 slotId = 2
+eraseButton = NodePath("../../Erase")
+quitButton = NodePath("../../Quit")
+deleteIcon = NodePath("../DeleteIcon")
+
+[node name="DeleteIcon" type="TextureRect" parent="CanvasLayer/TextureRect/FileSelector/File2"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_n5sle")
 
 [node name="File3" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
@@ -334,21 +355,21 @@ offset_right = 363.0
 offset_bottom = 622.0
 scale = Vector2(0.645, 0.645)
 focus_neighbor_top = NodePath("../File2")
-focus_neighbor_bottom = NodePath("../Copy")
+focus_neighbor_bottom = NodePath("../Quit")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_wl8ur")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_m8f4m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
-icon = ExtResource("3_ja1tf")
+icon = ExtResource("7_n5sle")
 
 [node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_qp34l")
-cursorAudio = ExtResource("4_br6yu")
+script = ExtResource("8_5a2vf")
+cursorAudio = ExtResource("9_gngrp")
 button = NodePath("..")
 
 [node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button")]
@@ -357,81 +378,94 @@ anchors_preset = 0
 offset_top = -190.698
 offset_right = 40.0
 offset_bottom = -150.698
-script = ExtResource("8_x83yr")
-audio = ExtResource("9_mussh")
+script = ExtResource("10_t7xbh")
+audio = ExtResource("11_38hi1")
 button = NodePath("..")
 
-[node name="SelectFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button")]
+[node name="SelectDeleteFileNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("button", "eraseButton", "quitButton", "deleteIcon")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.55038
 offset_top = -378.295
 offset_right = 41.5504
 offset_bottom = -338.295
-script = ExtResource("7_7xw1x")
+script = ExtResource("11_hfejy")
 button = NodePath("..")
 slotId = 3
+eraseButton = NodePath("../../Erase")
+quitButton = NodePath("../../Quit")
+deleteIcon = NodePath("../DeleteIcon")
 
-[node name="Copy" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+[node name="DeleteIcon" type="TextureRect" parent="CanvasLayer/TextureRect/FileSelector/File3"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_n5sle")
+
+[node name="Quit" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 421.0
 offset_top = 624.0
 offset_right = 483.0
 offset_bottom = 732.0
 scale = Vector2(0.645, 0.645)
 focus_neighbor_top = NodePath("../File3")
-focus_neighbor_right = NodePath("../Erase")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_wvur1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4g034")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
-icon = ExtResource("3_ja1tf")
+icon = ExtResource("7_n5sle")
 
-[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Copy" node_paths=PackedStringArray("button")]
+[node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Quit" node_paths=PackedStringArray("button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_qp34l")
-cursorAudio = ExtResource("4_br6yu")
+script = ExtResource("8_5a2vf")
+cursorAudio = ExtResource("9_gngrp")
 button = NodePath("..")
 
-[node name="Erase" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
+[node name="ChangeSceneOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Quit" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_cjhrm")
+scenePath = "res://assets/scenes/Game/main_menu.tscn"
+button = NodePath("..")
+
+[node name="Erase" type="Button" parent="CanvasLayer/TextureRect/FileSelector" node_paths=PackedStringArray("button")]
 offset_left = 710.0
 offset_top = 626.0
 offset_right = 772.0
 offset_bottom = 734.0
 scale = Vector2(0.645, 0.645)
-focus_neighbor_left = NodePath("../Copy")
+focus_neighbor_left = NodePath("../Quit")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
 theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_a82y3")
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7es8g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_j8pcn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8kj6y")
-icon = ExtResource("3_ja1tf")
+icon = ExtResource("7_n5sle")
+script = ExtResource("13_8gbar")
+button = NodePath(".")
 
 [node name="PlaySoundOnFocusNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Erase" node_paths=PackedStringArray("button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("6_qp34l")
-cursorAudio = ExtResource("4_br6yu")
+script = ExtResource("8_5a2vf")
+cursorAudio = ExtResource("9_gngrp")
 button = NodePath("..")
 
-[node name="ChangeSceneOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Erase" node_paths=PackedStringArray("button")]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("13_6pnu0")
-scenePath = "res://assets/scenes/Game/delete_menu.tscn"
-button = NodePath("..")
-
-[node name="PlayMusicOnReady" parent="." instance=ExtResource("10_84o5t")]
-clip = ExtResource("2_4r7re")
+[node name="PlayMusicOnReady" parent="." instance=ExtResource("13_w21gx")]
+clip = ExtResource("14_jwuqf")
 
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File1" to="CanvasLayer/TextureRect/FileSelector/File1" method="_on_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File2" to="CanvasLayer/TextureRect/FileSelector/File2" method="_on_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File3" to="CanvasLayer/TextureRect/FileSelector/File3" method="_on_focus_entered"]
-[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/Copy" to="CanvasLayer/TextureRect/FileSelector/Copy" method="_on_focus_entered"]
+[connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/Quit" to="CanvasLayer/TextureRect/FileSelector/Quit" method="_on_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/Erase" to="CanvasLayer/TextureRect/FileSelector/Erase" method="_on_focus_entered"]
