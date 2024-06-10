@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b4cwvhm4aws0a"]
+[gd_scene load_steps=59 format=3 uid="uid://b4cwvhm4aws0a"]
 
 [ext_resource type="Texture2D" uid="uid://d28v7qw25y6wj" path="res://assets/sprites/menu/Game Boy GBC - The Legend of Zelda Oracle of Ages - Font.png" id="1_vk004"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameCreatorManager.gd" id="2_1afa0"]
@@ -55,6 +55,102 @@ region = Rect2(118, 155, 8, 9)
 [sub_resource type="AtlasTexture" id="AtlasTexture_raxva"]
 atlas = ExtResource("1_vk004")
 region = Rect2(126, 155, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnv2t"]
+atlas = ExtResource("1_vk004")
+region = Rect2(134, 155, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3b7x"]
+atlas = ExtResource("1_vk004")
+region = Rect2(142, 155, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xanak"]
+atlas = ExtResource("1_vk004")
+region = Rect2(150, 155, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr5a5"]
+atlas = ExtResource("1_vk004")
+region = Rect2(158, 155, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ospo"]
+atlas = ExtResource("1_vk004")
+region = Rect2(118, 171, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c77f"]
+atlas = ExtResource("1_vk004")
+region = Rect2(126, 171, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlgyj"]
+atlas = ExtResource("1_vk004")
+region = Rect2(134, 171, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkudg"]
+atlas = ExtResource("1_vk004")
+region = Rect2(142, 171, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3nkk"]
+atlas = ExtResource("1_vk004")
+region = Rect2(150, 171, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxou2"]
+atlas = ExtResource("1_vk004")
+region = Rect2(158, 171, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irckh"]
+atlas = ExtResource("1_vk004")
+region = Rect2(118, 187, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4saes"]
+atlas = ExtResource("1_vk004")
+region = Rect2(126, 187, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scalx"]
+atlas = ExtResource("1_vk004")
+region = Rect2(134, 187, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpg6q"]
+atlas = ExtResource("1_vk004")
+region = Rect2(142, 187, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awvxx"]
+atlas = ExtResource("1_vk004")
+region = Rect2(150, 187, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqsmf"]
+atlas = ExtResource("1_vk004")
+region = Rect2(158, 187, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5md2"]
+atlas = ExtResource("1_vk004")
+region = Rect2(118, 203, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nf8d"]
+atlas = ExtResource("1_vk004")
+region = Rect2(126, 203, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0mrk"]
+atlas = ExtResource("1_vk004")
+region = Rect2(134, 203, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7y1x"]
+atlas = ExtResource("1_vk004")
+region = Rect2(142, 203, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6q5n"]
+atlas = ExtResource("1_vk004")
+region = Rect2(150, 203, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxobo"]
+atlas = ExtResource("1_vk004")
+region = Rect2(158, 203, 8, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w15w0"]
+atlas = ExtResource("1_vk004")
+region = Rect2(118, 219, 7, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0cd4"]
+atlas = ExtResource("1_vk004")
+region = Rect2(126, 219, 8, 9)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yox2o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -187,7 +283,7 @@ offset_top = -126.0
 offset_right = -203.0
 offset_bottom = -51.0
 focus_neighbor_right = NodePath("../Bbutton")
-focus_neighbor_bottom = NodePath("../LeftButton")
+focus_neighbor_bottom = NodePath("../GButton")
 
 [node name="PlaySoundOnFocusNode" parent="CanvasLayer/ContainerBg/NameSelector/AButton" index="0"]
 ignoreFirstFocus = true
@@ -213,7 +309,8 @@ defaultButton = NodePath("..")
 offset_top = -126.0
 offset_bottom = -51.0
 focus_neighbor_left = NodePath("../AButton")
-focus_neighbor_bottom = NodePath("../LeftButton")
+focus_neighbor_right = NodePath("../CButton")
+focus_neighbor_bottom = NodePath("../HButton")
 
 [node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/Bbutton" index="3" node_paths=PackedStringArray("nameManager")]
 letter = "B"
@@ -221,6 +318,389 @@ nameManager = NodePath("../../NameCreatorManager")
 
 [node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/Bbutton/ButtonIconGroup" index="1"]
 texture = SubResource("AtlasTexture_raxva")
+
+[node name="CButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -183.0
+offset_right = -120.0
+focus_neighbor_left = NodePath("../Bbutton")
+focus_neighbor_right = NodePath("../DButton")
+focus_neighbor_bottom = NodePath("../IButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/CButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "C"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/CButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_nnv2t")
+
+[node name="DButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -142.0
+offset_right = -79.0
+focus_neighbor_left = NodePath("../CButton")
+focus_neighbor_right = NodePath("../EButton")
+focus_neighbor_bottom = NodePath("../JButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/DButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "D"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/DButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_i3b7x")
+
+[node name="EButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -101.0
+offset_right = -38.0
+focus_neighbor_left = NodePath("../DButton")
+focus_neighbor_right = NodePath("../FButton")
+focus_neighbor_bottom = NodePath("../KButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/EButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "E"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/EButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_xanak")
+
+[node name="FButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -60.0
+offset_right = 3.0
+focus_neighbor_left = NodePath("../EButton")
+focus_neighbor_bottom = NodePath("../LButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/FButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "F"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/FButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_tr5a5")
+
+[node name="GButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -266.0
+offset_top = -45.0
+offset_right = -203.0
+offset_bottom = 30.0
+focus_neighbor_top = NodePath("../AButton")
+focus_neighbor_right = NodePath("../HButton")
+focus_neighbor_bottom = NodePath("../MButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/GButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "G"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/GButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_4ospo")
+
+[node name="HButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_top = -45.0
+offset_bottom = 30.0
+focus_neighbor_left = NodePath("../GButton")
+focus_neighbor_top = NodePath("../Bbutton")
+focus_neighbor_right = NodePath("../IButton")
+focus_neighbor_bottom = NodePath("../NButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/HButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "H"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/HButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_6c77f")
+
+[node name="IButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -184.0
+offset_top = -45.0
+offset_right = -121.0
+offset_bottom = 30.0
+focus_neighbor_left = NodePath("../HButton")
+focus_neighbor_top = NodePath("../CButton")
+focus_neighbor_right = NodePath("../JButton")
+focus_neighbor_bottom = NodePath("../OButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/IButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "I"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/IButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_jlgyj")
+
+[node name="JButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -143.0
+offset_top = -45.0
+offset_right = -79.9999
+offset_bottom = 30.0
+focus_neighbor_left = NodePath("../IButton")
+focus_neighbor_top = NodePath("../DButton")
+focus_neighbor_right = NodePath("../KButton")
+focus_neighbor_bottom = NodePath("../PButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/JButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "J"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/JButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_wkudg")
+
+[node name="KButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -103.0
+offset_top = -45.0
+offset_right = -40.0
+offset_bottom = 30.0
+focus_neighbor_left = NodePath("../JButton")
+focus_neighbor_top = NodePath("../EButton")
+focus_neighbor_right = NodePath("../LButton")
+focus_neighbor_bottom = NodePath("../QButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/KButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "K"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/KButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_f3nkk")
+
+[node name="LButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -62.0
+offset_top = -45.0
+offset_right = 1.0
+offset_bottom = 30.0
+focus_neighbor_left = NodePath("../KButton")
+focus_neighbor_top = NodePath("../FButton")
+focus_neighbor_bottom = NodePath("../RButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/LButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "L"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/LButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_mxou2")
+
+[node name="MButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -266.0
+offset_top = 36.0
+offset_right = -203.0
+offset_bottom = 111.0
+focus_neighbor_top = NodePath("../GButton")
+focus_neighbor_right = NodePath("../NButton")
+focus_neighbor_bottom = NodePath("../SButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/MButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "M"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/MButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_irckh")
+
+[node name="NButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -225.0
+offset_top = 36.0
+offset_right = -162.0
+offset_bottom = 111.0
+focus_neighbor_left = NodePath("../MButton")
+focus_neighbor_top = NodePath("../HButton")
+focus_neighbor_right = NodePath("../OButton")
+focus_neighbor_bottom = NodePath("../TButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/NButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "N"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/NButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_4saes")
+
+[node name="OButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -184.0
+offset_top = 36.0
+offset_right = -121.0
+offset_bottom = 111.0
+focus_neighbor_left = NodePath("../NButton")
+focus_neighbor_top = NodePath("../IButton")
+focus_neighbor_right = NodePath("../PButton")
+focus_neighbor_bottom = NodePath("../UButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/OButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "O"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/OButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_scalx")
+
+[node name="PButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -144.0
+offset_top = 36.0
+offset_right = -81.0
+offset_bottom = 111.0
+focus_neighbor_left = NodePath("../OButton")
+focus_neighbor_top = NodePath("../JButton")
+focus_neighbor_right = NodePath("../QButton")
+focus_neighbor_bottom = NodePath("../VButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/PButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "P"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/PButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_fpg6q")
+
+[node name="QButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -103.0
+offset_top = 36.0
+offset_right = -40.0
+offset_bottom = 111.0
+focus_neighbor_left = NodePath("../PButton")
+focus_neighbor_top = NodePath("../KButton")
+focus_neighbor_right = NodePath("../RButton")
+focus_neighbor_bottom = NodePath("../WButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/QButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "Q"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/QButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_awvxx")
+
+[node name="RButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -62.0
+offset_top = 36.0
+offset_right = 1.0
+offset_bottom = 111.0
+focus_neighbor_left = NodePath("../QButton")
+focus_neighbor_top = NodePath("../LButton")
+focus_neighbor_bottom = NodePath("../XButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/RButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "R"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/RButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_bqsmf")
+
+[node name="SButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -265.0
+offset_top = 117.0
+offset_right = -202.0
+offset_bottom = 192.0
+focus_neighbor_top = NodePath("../MButton")
+focus_neighbor_right = NodePath("../TButton")
+focus_neighbor_bottom = NodePath("../YButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/SButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "S"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/SButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_i5md2")
+
+[node name="TButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -225.0
+offset_top = 117.0
+offset_right = -162.0
+offset_bottom = 192.0
+focus_neighbor_left = NodePath("../SButton")
+focus_neighbor_top = NodePath("../NButton")
+focus_neighbor_right = NodePath("../UButton")
+focus_neighbor_bottom = NodePath("../ZButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/TButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "T"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/TButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_7nf8d")
+
+[node name="UButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -184.0
+offset_top = 117.0
+offset_right = -121.0
+offset_bottom = 192.0
+focus_neighbor_left = NodePath("../TButton")
+focus_neighbor_top = NodePath("../OButton")
+focus_neighbor_right = NodePath("../VButton")
+focus_neighbor_bottom = NodePath("../LeftButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/UButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "U"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/UButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_h0mrk")
+
+[node name="VButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -144.0
+offset_top = 117.0
+offset_right = -80.9999
+offset_bottom = 192.0
+focus_neighbor_left = NodePath("../UButton")
+focus_neighbor_top = NodePath("../PButton")
+focus_neighbor_right = NodePath("../WButton")
+focus_neighbor_bottom = NodePath("../LeftButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/VButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "V"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/VButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_b7y1x")
+
+[node name="WButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -103.0
+offset_top = 117.0
+offset_right = -40.0
+offset_bottom = 192.0
+focus_neighbor_left = NodePath("../VButton")
+focus_neighbor_top = NodePath("../QButton")
+focus_neighbor_right = NodePath("../XButton")
+focus_neighbor_bottom = NodePath("../LeftButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/WButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "W"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/WButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_k6q5n")
+
+[node name="XButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -62.0
+offset_top = 116.0
+offset_right = 1.0
+offset_bottom = 191.0
+focus_neighbor_left = NodePath("../WButton")
+focus_neighbor_top = NodePath("../RButton")
+focus_neighbor_bottom = NodePath("../LeftButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/XButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "X"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/XButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_jxobo")
+
+[node name="YButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_left = -266.0
+offset_top = 198.0
+offset_right = -203.0
+offset_bottom = 273.0
+focus_neighbor_top = NodePath("../SButton")
+focus_neighbor_right = NodePath("../ZButton")
+focus_neighbor_bottom = NodePath("../LeftButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/YButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "Y"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/YButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_w15w0")
+
+[node name="ZButton" parent="CanvasLayer/ContainerBg/NameSelector" instance=ExtResource("3_gv465")]
+offset_top = 197.0
+offset_bottom = 272.0
+focus_neighbor_left = NodePath("../YButton")
+focus_neighbor_top = NodePath("../TButton")
+focus_neighbor_bottom = NodePath("../LeftButton")
+
+[node name="AssignLetterOnSelectButton" parent="CanvasLayer/ContainerBg/NameSelector/ZButton" index="3" node_paths=PackedStringArray("nameManager")]
+letter = "Z"
+nameManager = NodePath("../../NameCreatorManager")
+
+[node name="Letter" parent="CanvasLayer/ContainerBg/NameSelector/ZButton/ButtonIconGroup" index="1"]
+texture = SubResource("AtlasTexture_u0cd4")
 
 [node name="LeftButton" type="Button" parent="CanvasLayer/ContainerBg/NameSelector"]
 anchors_preset = 8
@@ -237,7 +717,7 @@ grow_vertical = 2
 scale = Vector2(0.695, 0.695)
 size_flags_horizontal = 6
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../AButton")
+focus_neighbor_top = NodePath("../YButton")
 focus_neighbor_right = NodePath("../RightButton")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
@@ -313,7 +793,7 @@ scale = Vector2(0.695, 0.695)
 size_flags_horizontal = 6
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../LeftButton")
-focus_neighbor_top = NodePath("../AButton")
+focus_neighbor_top = NodePath("../ZButton")
 focus_neighbor_right = NodePath("../CreateGameButton")
 theme_type_variation = &"FlatButton"
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
@@ -484,3 +964,27 @@ signalToConnect = "start_realeased"
 
 [editable path="CanvasLayer/ContainerBg/NameSelector/AButton"]
 [editable path="CanvasLayer/ContainerBg/NameSelector/Bbutton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/CButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/DButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/EButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/FButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/GButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/HButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/IButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/JButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/KButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/LButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/MButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/NButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/OButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/PButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/QButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/RButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/SButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/TButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/UButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/VButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/WButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/XButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/YButton"]
+[editable path="CanvasLayer/ContainerBg/NameSelector/ZButton"]

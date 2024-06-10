@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://d3hg8eb2c7jvj"]
+[gd_scene load_steps=32 format=3 uid="uid://d3hg8eb2c7jvj"]
 
 [ext_resource type="Texture2D" uid="uid://bsjtinxmrkfn4" path="res://assets/sprites/menu/FileMenu.PNG" id="1_g8cdn"]
 [ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="2_4r7re"]
@@ -10,11 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://djhgig1on2h3v" path="res://assets/sprites/Characters/Link/Link.png" id="4_y63s8"]
 [ext_resource type="Texture2D" uid="uid://bcynr46j67t42" path="res://assets/sprites/Miscellaneous.png" id="5_fmfct"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnFocusNode.gd" id="6_qp34l"]
+[ext_resource type="PackedScene" uid="uid://cukmdjdcjgj3y" path="res://assets/scenes/Interface/rupias_counter.tscn" id="6_yldb0"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/select_file_node.gd" id="7_7xw1x"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/PlaySoundOnSelectButtonNode.gd" id="8_x83yr"]
 [ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="9_mussh"]
 [ext_resource type="PackedScene" uid="uid://7wcre4jcypuy" path="res://assets/scenes/Audio/play_music_on_ready.tscn" id="10_84o5t"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/ChangeSceneOnSelectButtonNode.gd" id="13_6pnu0"]
+[ext_resource type="FontFile" uid="uid://cu2x6wwjxfy1v" path="res://assets/fonts/ZeldaOracles.ttf" id="13_mvy5n"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/SetGameNameTextOnReady.gd" id="14_xbw75"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcho5"]
 atlas = ExtResource("4_y63s8")
@@ -49,6 +52,11 @@ region = Rect2(366, 30, 13, 16)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48xue"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ae6w"]
+
+[sub_resource type="FontVariation" id="FontVariation_lcgwg"]
+base_font = ExtResource("13_mvy5n")
+variation_embolden = -0.3
+spacing_glyph = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uv3us"]
 
@@ -89,11 +97,12 @@ stretch_mode = 4
 [node name="FileManager" type="Node" parent="CanvasLayer/TextureRect"]
 script = ExtResource("4_elctk")
 
-[node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("gameNotCreatedContainer", "gameCreatedContainer", "hearts")]
+[node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("gameNotCreatedContainer", "gameCreatedContainer", "hearts", "rupiasCounter")]
 script = ExtResource("3_x0opo")
 gameNotCreatedContainer = NodePath("GameNotCreatedContainer")
 gameCreatedContainer = NodePath("GameCreatedContainer")
 hearts = [NodePath("GameCreatedContainer/Hearts/GridContainer/Heart"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart2"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart3"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart4"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart5"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart6"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart7"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart8"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart9"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart10"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart11"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart12"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart13"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart14")]
+rupiasCounter = NodePath("GameCreatedContainer/Rupias/RupiasCounter")
 
 [node name="GameCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
 layout_mode = 3
@@ -221,6 +230,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = SubResource("AtlasTexture_6xmd7")
 
+[node name="Rupias" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer"]
+anchors_preset = 0
+offset_left = 811.0
+offset_top = 363.0
+offset_right = 925.0
+offset_bottom = 403.0
+
+[node name="RupiasCounter" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Rupias" instance=ExtResource("6_yldb0")]
+layout_mode = 1
+text = "0"
+
 [node name="GameNotCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
 layout_mode = 3
 anchors_preset = 0
@@ -284,6 +304,21 @@ script = ExtResource("7_7xw1x")
 button = NodePath("..")
 slotId = 1
 
+[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("textLabel")]
+layout_mode = 0
+offset_left = 116.279
+offset_top = 9.30233
+offset_right = 466.279
+offset_bottom = 90.3023
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_lcgwg")
+theme_override_fonts/bold_font = ExtResource("13_mvy5n")
+theme_override_font_sizes/normal_font_size = 80
+scroll_active = false
+script = ExtResource("14_xbw75")
+textLabel = NodePath(".")
+slotId = 1
+
 [node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
 offset_top = 391.0
@@ -325,6 +360,21 @@ offset_right = 41.5504
 offset_bottom = -147.597
 script = ExtResource("7_7xw1x")
 button = NodePath("..")
+slotId = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("textLabel")]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 9.0
+offset_right = 466.0
+offset_bottom = 95.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_lcgwg")
+theme_override_fonts/bold_font = ExtResource("13_mvy5n")
+theme_override_font_sizes/normal_font_size = 80
+scroll_active = false
+script = ExtResource("14_xbw75")
+textLabel = NodePath(".")
 slotId = 2
 
 [node name="File3" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
@@ -372,6 +422,21 @@ script = ExtResource("7_7xw1x")
 button = NodePath("..")
 slotId = 3
 
+[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("textLabel")]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 9.0
+offset_right = 466.0
+offset_bottom = 93.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_lcgwg")
+theme_override_fonts/bold_font = ExtResource("13_mvy5n")
+theme_override_font_sizes/normal_font_size = 80
+scroll_active = false
+script = ExtResource("14_xbw75")
+textLabel = NodePath(".")
+slotId = 3
+
 [node name="Copy" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 421.0
 offset_top = 624.0
@@ -394,6 +459,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_qp34l")
 cursorAudio = ExtResource("4_br6yu")
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Copy" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_x83yr")
+audio = ExtResource("9_mussh")
 button = NodePath("..")
 
 [node name="Erase" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
@@ -425,6 +498,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("13_6pnu0")
 scenePath = "res://assets/scenes/Game/delete_menu.tscn"
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Erase" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_x83yr")
+audio = ExtResource("9_mussh")
 button = NodePath("..")
 
 [node name="PlayMusicOnReady" parent="." instance=ExtResource("10_84o5t")]

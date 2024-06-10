@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cukmdjdcjgj3y"]
+
+[ext_resource type="FontFile" uid="uid://cu2x6wwjxfy1v" path="res://assets/fonts/ZeldaOracles.ttf" id="1_7g77t"]
+
+[sub_resource type="FontVariation" id="FontVariation_jyhod"]
+base_font = ExtResource("1_7g77t")
+
+[sub_resource type="FontVariation" id="FontVariation_jnqyy"]
+base_font = ExtResource("1_7g77t")
+variation_embolden = 2.0
+spacing_glyph = 4
+
+[node name="RupiasCounter" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_jyhod")
+theme_override_fonts/bold_font = SubResource("FontVariation_jnqyy")
+theme_override_font_sizes/normal_font_size = 31
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]000[/b]"
+fit_content = true
+scroll_active = false

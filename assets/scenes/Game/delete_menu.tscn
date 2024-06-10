@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://vqfsevjqkedd"]
+[gd_scene load_steps=33 format=3 uid="uid://vqfsevjqkedd"]
 
 [ext_resource type="Texture2D" uid="uid://chscusn3koba8" path="res://assets/sprites/menu/DeleteMenu.PNG" id="1_rl01f"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/FileInfoOnChangeSlot.gd" id="3_njiao"]
 [ext_resource type="Texture2D" uid="uid://djhgig1on2h3v" path="res://assets/sprites/Characters/Link/Link.png" id="4_3d2jk"]
+[ext_resource type="PackedScene" uid="uid://cukmdjdcjgj3y" path="res://assets/scenes/Interface/rupias_counter.tscn" id="5_5xfuc"]
 [ext_resource type="Texture2D" uid="uid://bcynr46j67t42" path="res://assets/sprites/Miscellaneous.png" id="5_qkckb"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="6_hpm4v"]
 [ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="7_n5sle"]
@@ -12,8 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://wgvujuugc4xv" path="res://assets/audio/sfx/menu/Oracle_Menu_Select.wav" id="11_38hi1"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/SelectDeleteFileNode.gd" id="11_hfejy"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/ChangeSceneOnSelectButtonNode.gd" id="12_cjhrm"]
+[ext_resource type="FontFile" uid="uid://cu2x6wwjxfy1v" path="res://assets/fonts/ZeldaOracles.ttf" id="13_3wj37"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/DeleteGameButtonNode.gd" id="13_8gbar"]
 [ext_resource type="PackedScene" uid="uid://7wcre4jcypuy" path="res://assets/scenes/Audio/play_music_on_ready.tscn" id="13_w21gx"]
+[ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/SetGameNameTextOnReady.gd" id="14_c7ury"]
 [ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="14_jwuqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcho5"]
@@ -49,6 +52,11 @@ region = Rect2(366, 30, 13, 16)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fplqp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ae6w"]
+
+[sub_resource type="FontVariation" id="FontVariation_wmyhh"]
+base_font = ExtResource("13_3wj37")
+variation_embolden = -0.3
+spacing_glyph = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvhq2"]
 
@@ -88,11 +96,12 @@ texture = ExtResource("1_rl01f")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("gameNotCreatedContainer", "gameCreatedContainer", "hearts")]
+[node name="FileInfoContainer" type="Node" parent="CanvasLayer/TextureRect" node_paths=PackedStringArray("gameNotCreatedContainer", "gameCreatedContainer", "hearts", "rupiasCounter")]
 script = ExtResource("3_njiao")
 gameNotCreatedContainer = NodePath("GameNotCreatedContainer")
 gameCreatedContainer = NodePath("GameCreatedContainer")
 hearts = [NodePath("GameCreatedContainer/Hearts/GridContainer/Heart"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart2"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart3"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart4"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart5"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart6"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart7"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart8"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart9"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart10"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart11"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart12"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart13"), NodePath("GameCreatedContainer/Hearts/GridContainer/Heart14")]
+rupiasCounter = NodePath("GameCreatedContainer/Rupias/RupiasCounter")
 
 [node name="GameCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
 visible = false
@@ -221,6 +230,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 texture = SubResource("AtlasTexture_6xmd7")
 
+[node name="Rupias" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 811.0
+offset_top = 363.0
+offset_right = 925.0
+offset_bottom = 403.0
+
+[node name="RupiasCounter" parent="CanvasLayer/TextureRect/FileInfoContainer/GameCreatedContainer/Rupias" instance=ExtResource("5_5xfuc")]
+layout_mode = 1
+text = "0"
+
 [node name="GameNotCreatedContainer" type="Control" parent="CanvasLayer/TextureRect/FileInfoContainer"]
 visible = false
 layout_mode = 3
@@ -295,6 +316,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_n5sle")
 
+[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("textLabel")]
+offset_left = 116.0
+offset_top = 9.0
+offset_right = 466.0
+offset_bottom = 93.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_wmyhh")
+theme_override_fonts/bold_font = ExtResource("13_3wj37")
+theme_override_font_sizes/normal_font_size = 80
+scroll_active = false
+script = ExtResource("14_c7ury")
+textLabel = NodePath(".")
+slotId = 1
+
 [node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
 offset_top = 391.0
@@ -347,6 +382,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_n5sle")
+
+[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("textLabel")]
+offset_left = 116.0
+offset_top = 9.0
+offset_right = 466.0
+offset_bottom = 93.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_wmyhh")
+theme_override_fonts/bold_font = ExtResource("13_3wj37")
+theme_override_font_sizes/normal_font_size = 80
+scroll_active = false
+script = ExtResource("14_c7ury")
+textLabel = NodePath(".")
+slotId = 2
 
 [node name="File3" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
@@ -403,6 +452,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_n5sle")
 
+[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("textLabel")]
+offset_left = 116.0
+offset_top = 9.0
+offset_right = 466.0
+offset_bottom = 93.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_wmyhh")
+theme_override_fonts/bold_font = ExtResource("13_3wj37")
+theme_override_font_sizes/normal_font_size = 80
+scroll_active = false
+script = ExtResource("14_c7ury")
+textLabel = NodePath(".")
+slotId = 3
+
 [node name="Quit" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 421.0
 offset_top = 624.0
@@ -434,6 +497,14 @@ script = ExtResource("12_cjhrm")
 scenePath = "res://assets/scenes/Game/main_menu.tscn"
 button = NodePath("..")
 
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Quit" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_t7xbh")
+audio = ExtResource("11_38hi1")
+button = NodePath("..")
+
 [node name="Erase" type="Button" parent="CanvasLayer/TextureRect/FileSelector" node_paths=PackedStringArray("button")]
 offset_left = 710.0
 offset_top = 626.0
@@ -459,6 +530,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("8_5a2vf")
 cursorAudio = ExtResource("9_gngrp")
+button = NodePath("..")
+
+[node name="PlaySoundOnSelectButtonNode" type="Control" parent="CanvasLayer/TextureRect/FileSelector/Erase" node_paths=PackedStringArray("button")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_t7xbh")
+audio = ExtResource("11_38hi1")
 button = NodePath("..")
 
 [node name="PlayMusicOnReady" parent="." instance=ExtResource("13_w21gx")]

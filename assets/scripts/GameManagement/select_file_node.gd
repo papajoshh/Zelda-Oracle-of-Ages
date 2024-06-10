@@ -14,7 +14,4 @@ func on_focus_file():
 	FileManager.ChangeSlot(slotId)
 	
 func on_select_file():
-	if(slotData.gameCreated):
-		pass
-	else:
-		await TransitionScreen.FadeInOut(0.1, Color.WHITE, SceneManager.change_scene.bind("res://assets/scenes/Game/start_new_game_menu.tscn"))
+	await LoadManager.LoadGame(slotData)
