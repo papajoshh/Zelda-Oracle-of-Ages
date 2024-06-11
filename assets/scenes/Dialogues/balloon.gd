@@ -2,7 +2,7 @@ extends CanvasLayer
 
 ## The action to use for advancing the dialogue
 @export var next_action: StringName = &"ui_accept"
-
+@export var letterSound:AudioStream
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"ui_cancel"
 
@@ -151,3 +151,7 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+
+func _on_dialogue_label_spoke(letter, letter_index, speed):
+	SoundManager.play_ui_sound(letterSound) # Replace with function body.

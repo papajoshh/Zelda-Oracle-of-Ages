@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/DeleteGameButtonNode.gd" id="13_8gbar"]
 [ext_resource type="PackedScene" uid="uid://7wcre4jcypuy" path="res://assets/scenes/Audio/play_music_on_ready.tscn" id="13_w21gx"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/SetGameNameTextOnReady.gd" id="14_c7ury"]
-[ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="14_jwuqf"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="14_jwuqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcho5"]
 atlas = ExtResource("4_3d2jk")
