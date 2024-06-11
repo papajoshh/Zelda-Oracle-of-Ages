@@ -1,7 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://d3hg8eb2c7jvj"]
 
 [ext_resource type="Texture2D" uid="uid://bsjtinxmrkfn4" path="res://assets/sprites/menu/FileMenu.PNG" id="1_g8cdn"]
-[ext_resource type="AudioStream" path="res://assets/audio/music/file_menu_selection_ost.ogg" id="2_4r7re"]
 [ext_resource type="Texture2D" uid="uid://y65q6pb46ys8" path="res://assets/sprites/menu/Bellota.PNG" id="3_ja1tf"]
 [ext_resource type="Script" path="res://assets/scripts/Interface/FileSelector.gd" id="3_mgl0p"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/FileInfoOnChangeSlot.gd" id="3_x0opo"]
@@ -18,6 +17,7 @@
 [ext_resource type="Script" path="res://assets/scripts/Interface/ChangeSceneOnSelectButtonNode.gd" id="13_6pnu0"]
 [ext_resource type="FontFile" uid="uid://cu2x6wwjxfy1v" path="res://assets/fonts/ZeldaOracles.ttf" id="13_mvy5n"]
 [ext_resource type="Script" path="res://assets/scripts/GameManagement/NameManager/SetGameNameTextOnReady.gd" id="14_xbw75"]
+[ext_resource type="AudioStream" uid="uid://danbbclk1gqvl" path="res://assets/audio/music/Old/file_menu_selection_ost.ogg" id="18_5ntoc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcho5"]
 atlas = ExtResource("4_y63s8")
@@ -507,7 +507,7 @@ audio = ExtResource("9_mussh")
 button = NodePath("..")
 
 [node name="PlayMusicOnReady" parent="." instance=ExtResource("10_84o5t")]
-clip = ExtResource("2_4r7re")
+clip = ExtResource("18_5ntoc")
 
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File1" to="CanvasLayer/TextureRect/FileSelector/File1" method="_on_focus_entered"]
 [connection signal="focus_entered" from="CanvasLayer/TextureRect/FileSelector/File2" to="CanvasLayer/TextureRect/FileSelector/File2" method="_on_focus_entered"]
