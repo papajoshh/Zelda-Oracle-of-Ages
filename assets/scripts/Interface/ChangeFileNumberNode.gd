@@ -4,5 +4,5 @@ extends Control
 
 func _ready():
 	var numberFile:int = FileManager.currentSlotId
-	fileIconTexture.texture = textures[numberFile - 1]
+	fileIconTexture.texture = textures[numberFile]
 

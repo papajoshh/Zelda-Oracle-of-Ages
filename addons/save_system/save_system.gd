@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node
 
 # ---------------------------------------------------------------------
@@ -36,7 +36,7 @@ const use_encryption : bool = false
 # this feature is irrelevant in your project, set this to false.
 # You typically only need this enabled if you are using dictionary keys
 # that aren't Strings.
-const perform_typecast_on_dictionary_keys : bool = true
+const perform_typecast_on_dictionary_keys : bool = false
 
 @export var current_state_dictionary := {}
 
@@ -110,11 +110,11 @@ func _ready():
 #	print(_sanitize_key_path(":::::Bob::::a:c:::d::"))
 #	print(has("Z"))
 
-
+#func _notification(what):
+	#if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		#save()# Save on exit.
 func _exit_tree():
-	save() # Save on exit.
-
-
+	save()
 # Deletes every existing save data.
 func delete_all():
 	current_state_dictionary.clear()

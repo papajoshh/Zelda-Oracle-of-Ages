@@ -1,8 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://b1c6kaup0qgkw"]
+[gd_scene load_steps=40 format=3 uid="uid://b1c6kaup0qgkw"]
 
 [ext_resource type="Texture2D" uid="uid://fs8oi53shk28" path="res://assets/sprites/Characters/Link/LinkIntro/Intro000.png" id="1_rgsg1"]
+[ext_resource type="Script" path="res://assets/scripts/Animation/PlayDialogueOnAnimationFinished.gd" id="2_3j2eh"]
 [ext_resource type="Texture2D" uid="uid://c7ylaa1hi0e2u" path="res://assets/sprites/Characters/Link/LinkIntro/Intro001.png" id="2_dj726"]
 [ext_resource type="Texture2D" uid="uid://bn2j1mitcotct" path="res://assets/sprites/Characters/Link/LinkIntro/Intro002.png" id="3_0bx8t"]
+[ext_resource type="Resource" uid="uid://bth32jkxkq84a" path="res://assets/dialogues/Introdialogue.dialogue" id="3_dpl58"]
 [ext_resource type="Texture2D" uid="uid://qisjp43fka6x" path="res://assets/sprites/Characters/Link/LinkIntro/Intro003.png" id="4_cj0cg"]
 [ext_resource type="Texture2D" uid="uid://cgo3dqa5w568i" path="res://assets/sprites/Characters/Link/LinkIntro/Intro006.png" id="5_v1fu4"]
 [ext_resource type="Texture2D" uid="uid://bfi72kng64sjq" path="res://assets/sprites/Characters/Link/LinkIntro/Intro007.png" id="6_qw3jp"]
@@ -37,6 +39,31 @@
 atlas = ExtResource("1_rgsg1")
 region = Rect2(23, 66, 12, 14)
 
+[sub_resource type="Animation" id="Animation_qw833"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedLink:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(626, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedLink:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_o072l"]
 resource_name = "SpawnLink"
 length = 6.5
@@ -61,31 +88,6 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(-191, -0.25, 0, 0.6, 19.5, -105.5, -0.7, -35.5, 0.191183, -8, -105.5, -0.228407, -2.5, 0.508294, 30, -37.5, -0.444636, -26, 0.175507, 0, -33.5, -0.124493, -6.5, 0.25, 0, 27, -0.369538, -25.5, 0.130989, -2.5, 28.5, -0.169011, -3, 0.458719, 28, 109.5, -0.341281, -18, 0.170172, -4, 111.5, -0.154752, -6, 0.489, 31, 225.5, -0.711, -42, 0.25, 0),
 "times": PackedFloat32Array(0, 1.1, 1.6, 2.3, 2.8, 3.5, 4, 4.8, 5.3, 6.5)
-}
-
-[sub_resource type="Animation" id="Animation_qw833"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedLink:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(626, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedLink:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ukuow"]
@@ -206,6 +208,11 @@ libraries = {
 }
 autoplay = "SpawnLink"
 
+[node name="PlayDialogueOnAnimationFinished" type="Node" parent="AnimationPlayer" node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("2_3j2eh")
+animationPlayer = NodePath("..")
+dialogue_resource = ExtResource("3_dpl58")
+
 [node name="LinkContainer" type="Node2D" parent="."]
 
 [node name="AnimatedLink" type="AnimatedSprite2D" parent="LinkContainer"]
@@ -213,7 +220,7 @@ z_as_relative = false
 position = Vector2(626, 0)
 sprite_frames = SubResource("SpriteFrames_10jna")
 autoplay = "default"
-frame_progress = 0.372378
+frame_progress = 0.673438
 
 [node name="PlayMusicOnReady" type="Node" parent="."]
 script = ExtResource("31_8l0ct")

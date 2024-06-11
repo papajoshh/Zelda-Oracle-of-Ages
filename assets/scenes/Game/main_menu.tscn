@@ -302,7 +302,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_7xw1x")
 button = NodePath("..")
-slotId = 1
 
 [node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File1" node_paths=PackedStringArray("textLabel")]
 layout_mode = 0
@@ -317,7 +316,6 @@ theme_override_font_sizes/normal_font_size = 80
 scroll_active = false
 script = ExtResource("14_xbw75")
 textLabel = NodePath(".")
-slotId = 1
 
 [node name="File2" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
@@ -360,7 +358,7 @@ offset_right = 41.5504
 offset_bottom = -147.597
 script = ExtResource("7_7xw1x")
 button = NodePath("..")
-slotId = 2
+slotId = 1
 
 [node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File2" node_paths=PackedStringArray("textLabel")]
 layout_mode = 0
@@ -375,7 +373,7 @@ theme_override_font_sizes/normal_font_size = 80
 scroll_active = false
 script = ExtResource("14_xbw75")
 textLabel = NodePath(".")
-slotId = 2
+slotId = 1
 
 [node name="File3" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 297.0
@@ -420,7 +418,7 @@ offset_right = 41.5504
 offset_bottom = -338.295
 script = ExtResource("7_7xw1x")
 button = NodePath("..")
-slotId = 3
+slotId = 2
 
 [node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect/FileSelector/File3" node_paths=PackedStringArray("textLabel")]
 layout_mode = 0
@@ -435,7 +433,7 @@ theme_override_font_sizes/normal_font_size = 80
 scroll_active = false
 script = ExtResource("14_xbw75")
 textLabel = NodePath(".")
-slotId = 3
+slotId = 2
 
 [node name="Copy" type="Button" parent="CanvasLayer/TextureRect/FileSelector"]
 offset_left = 421.0

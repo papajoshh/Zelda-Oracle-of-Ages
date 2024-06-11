@@ -1,9 +1,14 @@
 extends Node
 
 func _ready():
-	await get_tree().create_timer(0.2).timeout
+	SaveSystem.loaded.connect(Load)
+
+func Load():
 	var first_load = not SaveSystem.has("fileData_1")
 	
+	if first_load:
+		SaveSystem.delete_all()
+		
 	if first_load:
 		for fileId in 3:
 			var res := GameData.new()

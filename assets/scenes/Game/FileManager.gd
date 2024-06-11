@@ -1,6 +1,6 @@
 extends Node
 
-var currentSlotId: int = 1
+var currentSlotId: int = 0
 var currentGameData
 signal OnChangeSlot
 
