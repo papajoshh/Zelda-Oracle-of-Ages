@@ -41,6 +41,10 @@ window/size/viewport_height=720
 
 project/assembly_name="Oracle of Ages Learning"
 
+[editor]
+
+movie_writer/movie_file="D:/Repositorios/Godot/Zelda Oracle of Ages/Movies/recording.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/save_system/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
