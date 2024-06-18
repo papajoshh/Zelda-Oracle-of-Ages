@@ -465,15 +465,15 @@ libraries = {
 }
 autoplay = "SpawnLink"
 
-[node name="PlayDialogueOnAnimationFinished" type="Node" parent="AnimationPlayer" node_paths=PackedStringArray("animationPlayer")]
+[node name="PlayDialogueOnAnimationFinished" type="Node" parent="AnimationPlayer"]
 script = ExtResource("2_3j2eh")
-animationPlayer = NodePath("..")
 animationToCheck = &"SpawnLink"
 dialogue_resource = ExtResource("3_dpl58")
 
 [node name="LinkContainer" type="Node2D" parent="."]
 
 [node name="AnimatedLink" type="AnimatedSprite2D" parent="LinkContainer"]
+unique_name_in_owner = true
 z_as_relative = false
 position = Vector2(626, 0)
 sprite_frames = SubResource("SpriteFrames_10jna")
@@ -482,16 +482,15 @@ autoplay = "default"
 frame = 61
 frame_progress = 1.0
 
-[node name="PlayAnimationOnDialogueFinished" type="Node" parent="LinkContainer/AnimatedLink" node_paths=PackedStringArray("animationPlayer")]
+[node name="PlayAnimationOnDialogueFinished" type="Node" parent="LinkContainer/AnimatedLink"]
 script = ExtResource("95_tn433")
-animationPlayer = NodePath("..")
 dialogue_resource = ExtResource("3_dpl58")
 animationName = "FallDown"
 
-[node name="ChangeSceneOnAnimation2DSpriteEnded" type="Node" parent="LinkContainer/AnimatedLink" node_paths=PackedStringArray("animationSprite")]
+[node name="ChangeSceneOnAnimation2DSpriteEnded" type="Node" parent="LinkContainer/AnimatedLink"]
 script = ExtResource("96_xj7pl")
-animationSprite = NodePath("..")
 animationToCheck = &"FallDown"
+scenePath = "res://assets/scenes/Game/GameScenes/Tutorial.tscn"
 
 [node name="PlayAudioOnDialogueFinished" type="Node" parent="LinkContainer/AnimatedLink"]
 script = ExtResource("97_0ht5r")
