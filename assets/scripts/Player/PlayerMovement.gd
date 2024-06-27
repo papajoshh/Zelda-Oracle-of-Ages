@@ -31,19 +31,21 @@ func _physics_process(delta):
 	animate()
 
 func move(delta):
+	
 	var input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
 	
-	if input_direction == Vector2.ZERO:
+	if input_direction == Vector2.ZERO || !InputManager.checkInput:
 		state = IDLE
 	else:
 		state = WALK
 		blend_position = input_direction
 	
-	characterBody.velocity = input_direction.normalized() * move_speed
-	characterBody.move_and_slide()
+	if(InputManager.checkInput):
+		characterBody.velocity = input_direction.normalized() * move_speed
+		characterBody.move_and_slide()
 	
 func animate() -> void:
 	state_machine.travel(animTree_state_keys[state])

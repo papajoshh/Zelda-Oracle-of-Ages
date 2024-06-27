@@ -6,9 +6,9 @@
 metadata/_edit_horizontal_guides_ = [-411.0]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_left = 204.405
+offset_left = 205.405
 offset_top = -40.24
-offset_right = 1094.41
+offset_right = 1095.41
 offset_bottom = 760.76
 size_flags_horizontal = 4
 

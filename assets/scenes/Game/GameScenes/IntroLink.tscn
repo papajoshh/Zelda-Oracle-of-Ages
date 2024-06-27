@@ -476,6 +476,7 @@ dialogue_resource = ExtResource("3_dpl58")
 unique_name_in_owner = true
 z_as_relative = false
 position = Vector2(626, 0)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_10jna")
 animation = &"FallDown"
 autoplay = "default"

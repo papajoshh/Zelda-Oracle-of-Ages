@@ -11,7 +11,9 @@ signal ui_right_pressed
 signal start_pressed
 signal start_realeased
 
+var checkInput:bool = true
 func _process(delta):
+	if(!checkInput): return
 	if Input.is_action_just_pressed("ui_down"):
 		ui_down_pressed.emit()
 	if Input.is_action_just_pressed("ui_up"):
