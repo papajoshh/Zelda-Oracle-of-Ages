@@ -1,13 +1,13 @@
-[gd_scene load_steps=50 format=3 uid="uid://dtdrnb7u5h07t"]
+[gd_scene load_steps=69 format=3 uid="uid://dtdrnb7u5h07t"]
 
 [ext_resource type="Texture2D" uid="uid://dwfdttnfw4f6d" path="res://assets/sprites/Tilesets/Labrynnia.png" id="1_3xxsb"]
-[ext_resource type="Texture2D" uid="uid://cwjij4in1uote" path="res://assets/sprites/Characters/Papajoshh/Linkjoshh_movement.png" id="2_25hvb"]
 [ext_resource type="Texture2D" uid="uid://bgnqw4yxefn80" path="res://assets/sprites/Tilesets/yessssir.png" id="2_t5y1i"]
 [ext_resource type="Script" path="res://assets/scripts/Player/PlayerMovement.gd" id="3_frj7r"]
-[ext_resource type="Script" path="res://assets/scripts/Camera/MoveCameraOnPlayerEnter.gd" id="3_na1g2"]
 [ext_resource type="Script" path="res://assets/scripts/Player/Player.gd" id="4_olrtw"]
+[ext_resource type="Script" path="res://assets/scenes/Game/GameScenes/MoveCameraOnPlayerEnterNode.gd" id="4_rr17a"]
 [ext_resource type="Shader" path="res://assets/scripts/Shaders/ScreenDistortion.gdshader" id="4_t0wu1"]
 [ext_resource type="Script" path="res://assets/scripts/Camera/Camera.gd" id="5_go557"]
+[ext_resource type="Texture2D" uid="uid://c2mn0ymo7hoej" path="res://assets/sprites/Characters/Papajoshh/Asset_Linkjoshh.png" id="6_cl17i"]
 [ext_resource type="AudioStream" uid="uid://dr5wr357vs1ne" path="res://assets/audio/sfx/Oracle_BeginQuest.wav" id="6_tps0o"]
 
 [sub_resource type="Animation" id="Animation_bw44g"]
@@ -3409,7 +3409,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [21]
 }
 
 [sub_resource type="Animation" id="Animation_50lab"]
@@ -3426,7 +3426,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [26]
 }
 
 [sub_resource type="Animation" id="Animation_b11ft"]
@@ -3443,7 +3443,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.0043009),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [5]
+"values": [25]
 }
 
 [sub_resource type="Animation" id="Animation_xxyq1"]
@@ -3460,7 +3460,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.0016838),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [22]
 }
 
 [sub_resource type="Animation" id="Animation_kerw0"]
@@ -3477,7 +3477,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [21]
 }
 
 [sub_resource type="Animation" id="Animation_cg3x4"]
@@ -3494,7 +3494,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [6, 7, 6]
+"values": [26, 27, 26]
 }
 
 [sub_resource type="Animation" id="Animation_pe0v2"]
@@ -3511,7 +3511,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [4, 5, 4]
+"values": [24, 25, 24]
 }
 
 [sub_resource type="Animation" id="Animation_0iptx"]
@@ -3528,7 +3528,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [2, 3, 2]
+"values": [22, 23, 22]
 }
 
 [sub_resource type="Animation" id="Animation_deryo"]
@@ -3545,7 +3545,75 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 0]
+"values": [20, 21, 20]
+}
+
+[sub_resource type="Animation" id="Animation_r148m"]
+resource_name = "pushDown"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [126, 127, 126]
+}
+
+[sub_resource type="Animation" id="Animation_74maj"]
+resource_name = "pushLeft"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [124, 125, 124]
+}
+
+[sub_resource type="Animation" id="Animation_7eq3i"]
+resource_name = "pushRight"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [122, 123, 122]
+}
+
+[sub_resource type="Animation" id="Animation_aov87"]
+resource_name = "pushUp"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [120, 121, 120]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dul7t"]
@@ -3555,6 +3623,10 @@ _data = {
 "idleLeft": SubResource("Animation_b11ft"),
 "idleRight": SubResource("Animation_xxyq1"),
 "idleUp": SubResource("Animation_kerw0"),
+"pushDown": SubResource("Animation_r148m"),
+"pushLeft": SubResource("Animation_74maj"),
+"pushRight": SubResource("Animation_7eq3i"),
+"pushUp": SubResource("Animation_aov87"),
 "walkDown": SubResource("Animation_cg3x4"),
 "walkLeft": SubResource("Animation_pe0v2"),
 "walkRight": SubResource("Animation_0iptx"),
@@ -3592,6 +3664,58 @@ nodes/TimeScale/position = Vector2(80, 220)
 nodes/idle_bs2d/node = SubResource("AnimationNodeBlendSpace2D_jtpe8")
 nodes/idle_bs2d/position = Vector2(-160, 80)
 node_connections = [&"TimeScale", 0, &"idle_bs2d"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_fa6kq"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_csiro"]
+animation = &"pushUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jcssl"]
+animation = &"pushLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_41bwc"]
+animation = &"pushDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w6b5k"]
+animation = &"pushRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gxb8p"]
+animation = &"pushRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8go41"]
+animation = &"pushRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_62iwb"]
+animation = &"pushLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rvnkb"]
+animation = &"pushLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_x6ipu"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_csiro")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_jcssl")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_41bwc")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_w6b5k")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_gxb8p")
+blend_point_4/pos = Vector2(0.5, 0.5)
+blend_point_5/node = SubResource("AnimationNodeAnimation_8go41")
+blend_point_5/pos = Vector2(0.5, -0.5)
+blend_point_6/node = SubResource("AnimationNodeAnimation_62iwb")
+blend_point_6/pos = Vector2(-0.5, -0.5)
+blend_point_7/node = SubResource("AnimationNodeAnimation_rvnkb")
+blend_point_7/pos = Vector2(-0.5, 0.5)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8d6r7"]
+graph_offset = Vector2(-492.43, 0)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_fa6kq")
+nodes/TimeScale/position = Vector2(40, 140)
+nodes/push_bs2d/node = SubResource("AnimationNodeBlendSpace2D_x6ipu")
+nodes/push_bs2d/position = Vector2(-200, 100)
+node_connections = [&"TimeScale", 0, &"push_bs2d", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_80xjq"]
 
@@ -3638,7 +3762,7 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_7qh47")
 blend_point_7/pos = Vector2(0.5, 0.6)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_s6bqc"]
-graph_offset = Vector2(-392.711, 50.7521)
+graph_offset = Vector2(-415.077, 43.595)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_80xjq")
 nodes/TimeScale/position = Vector2(40, 160)
 nodes/walk_bs2d/node = SubResource("AnimationNodeBlendSpace2D_gf5cm")
@@ -3652,13 +3776,24 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2qfd4"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gcq1s"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_acjkk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qh7he"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d30pd"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_oiw3u"]
 states/Idle/node = SubResource("AnimationNodeBlendTree_04na3")
-states/Idle/position = Vector2(304, 100)
+states/Idle/position = Vector2(309, 100)
+states/Push/node = SubResource("AnimationNodeBlendTree_8d6r7")
+states/Push/position = Vector2(424, -29)
 states/Start/position = Vector2(113, 100)
 states/Walk/node = SubResource("AnimationNodeBlendTree_s6bqc")
 states/Walk/position = Vector2(548, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_bv10h"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_nbe2j"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_2qfd4")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_bv10h"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_nbe2j"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_2qfd4"), "Idle", "Push", SubResource("AnimationNodeStateMachineTransition_gcq1s"), "Push", "Idle", SubResource("AnimationNodeStateMachineTransition_acjkk"), "Walk", "Push", SubResource("AnimationNodeStateMachineTransition_qh7he"), "Push", "Walk", SubResource("AnimationNodeStateMachineTransition_d30pd")]
+graph_offset = Vector2(-23, -61)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efitn"]
 radius = 5.0
@@ -3680,12 +3815,13 @@ libraries = {
 autoplay = "Entrance_intro"
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource("TileSet_epfpd")
 format = 2
 layer_0/name = "Floor"
 layer_0/tile_data = PackedInt32Array(-1507296, 983040, 2, -1572832, 983040, 0, -1572830, 655360, 8, -1572831, 589824, 9, -1507297, 589824, 8, -1507295, 917504, 2, -1507294, 917504, 2, -1507293, 983040, 5, -1572829, 983040, 4, -1638365, 983040, 4, -1638367, 983040, 1, -1638366, 589824, 9, -1769440, 589824, 9, -1834976, 917504, 1, -1834977, 983040, 0, -1834975, 983040, 3, -1769441, 983040, 1, -1703905, 983040, 2, -1703904, 917504, 2, -1769439, 983040, 4, -1703903, 655360, 8, -1703902, 917504, 1, -1703901, 589824, 9, -1703900, 983040, 5, -1769437, 983040, 0, -1769436, 655360, 8, -1769435, 983040, 5, -1834972, 983040, 1, -1834971, 983040, 4, -1900507, 983040, 4, -1900508, 589824, 9, -1900509, 983040, 2, -1966047, 589824, 8, -1900510, 589824, 8, -1900511, 589824, 8, -1834974, 589824, 8, -1834973, 589824, 8, -1769438, 589824, 8, -1703899, 589824, 8, -1638364, 589824, 8, -1638369, 917504, 0, -1638368, 917504, 0, -1572833, 917504, 0, -1572828, 917504, 0, -1572827, 917504, 0, -1507291, 917504, 0, -1507292, 917504, 0, -1638363, 917504, 0, -1966046, 983040, 2, -2031583, 983040, 2, -1966043, 983040, 3, -1966044, 917504, 5, -1966045, 589824, 9, -2031581, 917504, 5, -2031582, 589824, 9, -2097118, 589824, 9, -2097119, 983040, 1, -2097117, 983040, 4, -2162654, 589824, 9, -2162655, 983040, 0, -2162653, 917504, 5, -2162652, 983040, 5, -2228190, 983040, 0, -2228189, 917504, 5, -2228188, 917504, 5, -2228187, 983040, 5, -2293725, 983040, 1, -2293723, 983040, 4, -2359259, 983040, 3, -2293724, 589824, 9, -2359260, 589824, 9, -2359261, 589824, 9, -2359262, 983040, 2, -2424799, 983040, 2, -2424798, 589824, 9, -2424797, 917504, 5, -2424796, 983040, 3, -2424795, 589824, 8, -2359263, 589824, 8, -2359264, 589824, 8, -2293728, 589824, 8, -2293727, 589824, 8, -2293726, 589824, 8, -2228191, 589824, 8, -2228192, 589824, 8, -2162651, 589824, 8, -2097115, 589824, 8, -2097116, 589824, 8, -2031579, 589824, 8, -2162656, 917504, 0, -2097120, 917504, 0, -2031584, 917504, 0, -2031580, 983040, 3, -2097121, 458752, 4, -2031585, 458752, 6, -2097122, 393216, 4, -2097123, 393216, 4, -2097124, 393216, 4, -2031586, 393216, 6, -2031587, 393216, 6, -2031588, 393216, 5, -1966052, 458752, 5)
 layer_1/name = "Collision"
-layer_1/tile_data = PackedInt32Array(-1834979, 524288, 4, -1703907, 524288, 4, -1572835, 524288, 4, -1966051, 524288, 4, -1966049, 524288, 4, -1966042, 524288, 4, -1834970, 524288, 4, -1703898, 524288, 4, -1572826, 524288, 4, -1638369, 524288, 68, -1638368, 524288, 68, -1572833, 524288, 68, -1638363, 524288, 68, -1572827, 524288, 68, -1572828, 524288, 68, -1507292, 524288, 68, -1507291, 524288, 68, -1900504, 196608, 2, -1834968, 196608, 2, -1769432, 196608, 2, -1703896, 196608, 2, -1638360, 196608, 2, -1572824, 196608, 2, -1507288, 196608, 2, -1441752, 262144, 1, -1441753, 0, 1, -1441754, 0, 1, -1441755, 0, 1, -1441756, 0, 1, -1441757, 0, 1, -1441758, 0, 1, -1441759, 0, 1, -1441760, 0, 1, -1441761, 0, 1, -1441762, 0, 1, -1441763, 0, 1, -1441764, 0, 1, -1376228, 262144, 2, -1376227, 262144, 2, -1376226, 262144, 2, -1376225, 262144, 2, -1376224, 262144, 2, -1376223, 262144, 2, -1376222, 262144, 2, -1376221, 262144, 2, -1376220, 262144, 2, -1376219, 262144, 2, -1376218, 262144, 2, -1376217, 262144, 2, -1376216, 262144, 2, -2228194, 524288, 4, -2359266, 524288, 4, -2490337, 524288, 4, -2490339, 524288, 4, -2621411, 524288, 4, -2097114, 524288, 4, -2228186, 524288, 4, -2490330, 786432, 68, -2359258, 786432, 68, -2490328, 0, 50, -2359256, 0, 50, -2228184, 0, 50, -2097112, 0, 50, -2162656, 524288, 68, -2097120, 524288, 68, -2031584, 524288, 68)
+layer_1/tile_data = PackedInt32Array(-1834979, 524288, 4, -1703907, 524288, 4, -1572835, 524288, 4, -1966051, 524288, 4, -1966049, 524288, 4, -1966042, 524288, 4, -1834970, 524288, 4, -1703898, 524288, 4, -1572826, 524288, 4, -1638369, 524288, 68, -1638368, 524288, 68, -1572833, 524288, 68, -1638363, 524288, 68, -1572827, 524288, 68, -1572828, 524288, 68, -1507292, 524288, 68, -1507291, 524288, 68, -1900504, 196608, 2, -1834968, 196608, 2, -1769432, 196608, 2, -1703896, 196608, 2, -1638360, 196608, 2, -1572824, 196608, 2, -1507288, 196608, 2, -1441752, 262144, 1, -1441753, 0, 1, -1441754, 0, 1, -1441755, 0, 1, -1441756, 0, 1, -1441757, 0, 1, -1441758, 0, 1, -1441759, 0, 1, -1441760, 0, 1, -1441761, 0, 1, -1441762, 0, 1, -1441763, 0, 1, -1441764, 0, 1, -1376228, 262144, 2, -1376227, 262144, 2, -1376226, 262144, 2, -1376225, 262144, 2, -1376224, 262144, 2, -1376223, 262144, 2, -1376222, 262144, 2, -1376221, 262144, 2, -1376220, 262144, 2, -1376219, 262144, 2, -1376218, 262144, 2, -1376217, 262144, 2, -1376216, 262144, 2, -2228194, 524288, 4, -2359266, 524288, 4, -2490337, 524288, 4, -2490339, 524288, 4, -2621411, 524288, 4, -2097114, 524288, 4, -2228186, 524288, 4, -2490330, 786432, 68, -2359258, 786432, 68, -2490328, 0, 50, -2359256, 0, 50, -2228184, 0, 50, -2097112, 0, 50, -2162656, 524288, 68, -2097120, 524288, 68, -2031584, 524288, 68, -2162659, 65536, 2, -2228195, 655360, 2, -2293731, 196608, 2, -2359267, 262144, 0)
 
 [node name="Labrynnia" type="Sprite2D" parent="."]
 visible = false
@@ -3694,54 +3830,76 @@ position = Vector2(-3, -3)
 texture = ExtResource("1_3xxsb")
 
 [node name="Room1" type="Node2D" parent="."]
-position = Vector2(554, -408)
+
+[node name="TileMap" type="TileMap" parent="Room1"]
+tile_set = SubResource("TileSet_epfpd")
+format = 2
+layer_0/name = "Floor"
+layer_0/tile_data = PackedInt32Array(-1507296, 983040, 2, -1572832, 983040, 0, -1572830, 655360, 8, -1572831, 589824, 9, -1507297, 589824, 8, -1507295, 917504, 2, -1507294, 917504, 2, -1507293, 983040, 5, -1572829, 983040, 4, -1638365, 983040, 4, -1638367, 983040, 1, -1638366, 589824, 9, -1769440, 589824, 9, -1834976, 917504, 1, -1834977, 983040, 0, -1834975, 983040, 3, -1769441, 983040, 1, -1703905, 983040, 2, -1703904, 917504, 2, -1769439, 983040, 4, -1703903, 655360, 8, -1703902, 917504, 1, -1703901, 589824, 9, -1703900, 983040, 5, -1769437, 983040, 0, -1769436, 655360, 8, -1769435, 983040, 5, -1834972, 983040, 1, -1834971, 983040, 4, -1834974, 589824, 8, -1834973, 589824, 8, -1769438, 589824, 8, -1703899, 589824, 8, -1638364, 589824, 8, -1638369, 917504, 0, -1638368, 917504, 0, -1572833, 917504, 0, -1572828, 917504, 0, -1572827, 917504, 0, -1507291, 917504, 0, -1507292, 917504, 0, -1638363, 917504, 0, -1900511, 589824, 8, -1900510, 589824, 8, -1900509, 983040, 2, -1900508, 589824, 9, -1900507, 983040, 4)
+layer_1/name = "Collision"
+layer_1/tile_data = PackedInt32Array(-1834979, 524288, 4, -1703907, 524288, 4, -1572835, 524288, 4, -1966051, 524288, 4, -1966049, 524288, 4, -1966042, 524288, 4, -1834970, 524288, 4, -1703898, 524288, 4, -1572826, 524288, 4, -1638369, 524288, 68, -1638368, 524288, 68, -1572833, 524288, 68, -1638363, 524288, 68, -1572827, 524288, 68, -1572828, 524288, 68, -1507292, 524288, 68, -1507291, 524288, 68, -1900504, 196608, 2, -1834968, 196608, 2, -1769432, 196608, 2, -1703896, 196608, 2, -1638360, 196608, 2, -1572824, 196608, 2, -1507288, 196608, 2, -1441752, 262144, 1, -1441753, 0, 1, -1441754, 0, 1, -1441755, 0, 1, -1441756, 0, 1, -1441757, 0, 1, -1441758, 0, 1, -1441759, 0, 1, -1441760, 0, 1, -1441761, 0, 1, -1441762, 0, 1, -1441763, 0, 1, -1441764, 0, 1, -1376228, 262144, 2, -1376227, 262144, 2, -1376226, 262144, 2, -1376225, 262144, 2, -1376224, 262144, 2, -1376223, 262144, 2, -1376222, 262144, 2, -1376221, 262144, 2, -1376220, 262144, 2, -1376219, 262144, 2, -1376218, 262144, 2, -1376217, 262144, 2, -1376216, 262144, 2)
 
 [node name="Node2D" type="Node2D" parent="Room1"]
 position = Vector2(1, 0)
 
 [node name="GoingUp" type="Area2D" parent="Room1"]
-position = Vector2(0, -53)
+position = Vector2(554, -460)
 collision_mask = 2
-monitoring = false
-script = ExtResource("3_na1g2")
-tweenDuration = 0.7
-distanceToMove = Vector2(0, -112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/GoingUp"]
 position = Vector2(14, -3)
 shape = SubResource("RectangleShape2D_80eqb")
 
-[node name="TargetPosition" type="Node2D" parent="Room1/GoingUp"]
-position = Vector2(0, -66)
+[node name="MoveCameraOnPlayerEnter" type="Node" parent="Room1/GoingUp" node_paths=PackedStringArray("area2D")]
+script = ExtResource("4_rr17a")
+tweenDuration = 0.7
+distanceToMove = Vector2(0, -112)
+distancePlayerToMove = Vector2(0, -14)
+area2D = NodePath("../../../Room2/GoingDown")
+
+[node name="TargetPosition" type="Node2D" parent="Room1/GoingUp/MoveCameraOnPlayerEnter"]
+position = Vector2(554, -526)
 
 [node name="Camera2D" type="Camera2D" parent="Room1"]
 unique_name_in_owner = true
-position = Vector2(0, 12)
+position = Vector2(551, -392)
 zoom = Vector2(5.635, 5.635)
 limit_left = 0
 script = ExtResource("5_go557")
 
 [node name="Room2" type="Node2D" parent="."]
-position = Vector2(554, -536)
+
+[node name="TileMap" type="TileMap" parent="Room2"]
+tile_set = SubResource("TileSet_epfpd")
+format = 2
+layer_0/name = "Floor"
+layer_0/tile_data = PackedInt32Array(-1966047, 589824, 8, -1966046, 983040, 2, -2031583, 983040, 2, -1966043, 983040, 3, -1966044, 917504, 5, -1966045, 589824, 9, -2031581, 917504, 5, -2031582, 589824, 9, -2097118, 589824, 9, -2097119, 983040, 1, -2097117, 983040, 4, -2162654, 589824, 9, -2162655, 983040, 0, -2162653, 917504, 5, -2162652, 983040, 5, -2228190, 983040, 0, -2228189, 917504, 5, -2228188, 917504, 5, -2228187, 983040, 5, -2293725, 983040, 1, -2293723, 983040, 4, -2359259, 983040, 3, -2293724, 589824, 9, -2359260, 589824, 9, -2359261, 589824, 9, -2359262, 983040, 2, -2424799, 983040, 2, -2424798, 589824, 9, -2424797, 917504, 5, -2424796, 983040, 3, -2424795, 589824, 8, -2359263, 589824, 8, -2359264, 589824, 8, -2293728, 589824, 8, -2293727, 589824, 8, -2293726, 589824, 8, -2228191, 589824, 8, -2228192, 589824, 8, -2162651, 589824, 8, -2097115, 589824, 8, -2097116, 589824, 8, -2031579, 589824, 8, -2162656, 917504, 0, -2097120, 917504, 0, -2031584, 917504, 0, -2031580, 983040, 3, -2097121, 458752, 4, -2031585, 458752, 6, -2097122, 393216, 4, -2097123, 393216, 4, -2097124, 393216, 4, -2031586, 393216, 6, -2031587, 393216, 6, -2031588, 393216, 5, -1966052, 458752, 5)
+layer_1/name = "Collision"
+layer_1/tile_data = PackedInt32Array(-2228194, 524288, 4, -2359266, 524288, 4, -2490337, 524288, 4, -2490339, 524288, 4, -2621411, 524288, 4, -2097114, 524288, 4, -2228186, 524288, 4, -2490330, 786432, 68, -2359258, 786432, 68, -2490328, 0, 50, -2359256, 0, 50, -2228184, 0, 50, -2097112, 0, 50, -2162656, 524288, 68, -2097120, 524288, 68, -2031584, 524288, 68, -2162659, 65536, 2, -2228195, 655360, 2, -2293731, 196608, 2, -2359267, 262144, 0, -1900511, 589824, 8, -1900510, 589824, 8, -1900509, 983040, 2, -1900508, 589824, 9, -1900507, 983040, 4)
 
 [node name="Node2D" type="Node2D" parent="Room2"]
 position = Vector2(1, 0)
 
 [node name="GoingDown" type="Area2D" parent="Room2"]
-position = Vector2(0, 83)
+position = Vector2(554, -454)
 collision_mask = 2
-script = ExtResource("3_na1g2")
-tweenDuration = 0.7
-distanceToMove = Vector2(0, -112)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room2/GoingDown"]
 position = Vector2(14, -3)
 shape = SubResource("RectangleShape2D_80eqb")
 
-[node name="TargetPosition" type="Node2D" parent="Room2/GoingDown"]
-position = Vector2(0, 47)
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Room2/GoingDown"]
+
+[node name="MoveCameraOnPlayerEnterNode" type="Node" parent="Room2/GoingDown" node_paths=PackedStringArray("area2D")]
+script = ExtResource("4_rr17a")
+tweenDuration = 0.7
+distanceToMove = Vector2(0, -112)
+distancePlayerToMove = Vector2(0, 14)
+area2D = NodePath("../../../Room1/GoingUp")
+
+[node name="TargetPosition" type="Node2D" parent="Room2/GoingDown/MoveCameraOnPlayerEnterNode"]
+position = Vector2(554, -395)
 
 [node name="Link" type="CharacterBody2D" parent="."]
 position = Vector2(555, -408)
@@ -3749,9 +3907,10 @@ collision_layer = 2
 script = ExtResource("4_olrtw")
 
 [node name="Sprite2D" type="Sprite2D" parent="Link"]
-texture = ExtResource("2_25hvb")
-hframes = 8
-frame = 7
+texture = ExtResource("6_cl17i")
+hframes = 20
+vframes = 14
+frame = 21
 
 [node name="WalkController" type="Node2D" parent="Link"]
 script = ExtResource("3_frj7r")
@@ -3769,8 +3928,10 @@ tree_root = SubResource("AnimationNodeStateMachine_oiw3u")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/TimeScale/scale = 1.0
 parameters/Idle/idle_bs2d/blend_position = Vector2(0, 0)
+parameters/Push/TimeScale/scale = 1.0
+parameters/Push/push_bs2d/blend_position = Vector2(0, 0)
 parameters/Walk/TimeScale/scale = 1.0
-parameters/Walk/walk_bs2d/blend_position = Vector2(0, 0)
+parameters/Walk/walk_bs2d/blend_position = Vector2(-0.00314796, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Link"]
 position = Vector2(0, 1.51)
