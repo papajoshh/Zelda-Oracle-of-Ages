@@ -6,11 +6,12 @@ extends Node2D
 
 enum {IDLE, WALK, PUSH}
 var state = IDLE
+var input_direction:Vector2 = Vector2.ZERO
 
 @onready var animation_tree: AnimationTree =  GetAnimationTree()
 @onready var state_machine = animation_tree["parameters/playback"]
 
-var blend_position: Vector2 = Vector2.ZERO
+var blend_position: Vector2 = Vector2(0,1)
 var blend_pos_paths = [
 	"parameters/Idle/idle_bs2d/blend_position",
 	"parameters/Walk/walk_bs2d/blend_position",
@@ -43,25 +44,24 @@ func OnExitCollide():
 	isColliding = false
 	
 func move(delta):
-	var input_direction = Vector2(
+	input_direction = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
 	if input_direction == Vector2.ZERO || !InputManager.checkInput:
 		state = IDLE
 	else:
-		blend_position = input_direction	
-	
-	if(InputManager.checkInput):
-		#characterBody.velocity = input_direction.normalized() * move_speed
-		if input_direction == Vector2.ZERO || !InputManager.checkInput:
-			state = IDLE
+		var collision = characterBody.move_and_collide(input_direction.normalized() * move_speed * delta)
+		if(collision != null):
+			if(state != PUSH):
+				var normal = -collision.get_normal()
+				blend_position = Vector2(snappedi(normal.x, 1), snappedi(normal.y, 1))
+			state = PUSH
 		else:
-			var collision = characterBody.move_and_collide(input_direction.normalized() * move_speed * delta)
-			if(collision != null):
-				state = PUSH
-			else:
-				state = WALK
+			state = WALK
+			blend_position = Vector2(snappedi(input_direction.x, 1), snappedi(input_direction.y, 1))
+		
+	
 
 func autoMove(position:Vector2, moveDuration:float):
 	var tween = get_tree().create_tween()
